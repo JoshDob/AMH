@@ -12,42 +12,41 @@
 
 <style>
     .header {
-        display: flex;
-        width: 90rem;
-        height: 2rem;
-        padding: 1.5rem 1rem;
-        align-items: flex-end;
-        gap: 3.75rem;
-        background-color: #FFF;
-    }
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  padding: var(--e2) var(--d2);
+  align-items: baseline;
+  gap: var(--g2);
+  background-color: var(--color1);
+}
 
-    .client-name {
-        color: #000;
-        font-family: 'EB Garamond', serif;
-        font-size: 1.5rem;
-        font-weight: 400;
-        font-variant: small-caps;
-    }
+.client-name {
+  color: var(--color2);
+  font-family: var(--font-body);
+  font-size: var(--d2);
+  font-weight: 400;
+  font-variant: small-caps;
+}
 
-    .section {
-        position: relative;
-    }
+.section {
+  position: relative;
+}
 
-    .section-title {
-        color: #000;
-        font-family: 'Muli', sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        letter-spacing: 0.175rem;
-        text-transform: uppercase;
-    }
+.section-title {
+  color: var(--color2);
+  font-family: 'Muli', sans-serif;
+  font-size: var(--c);
+  letter-spacing: var(--a);
+  text-transform: uppercase;
+}
 
-    .underline {
-        position: absolute;
-        left: -15rem;
-        top: 105%; /* Positioned right below the text */
-        width: 34rem;
-        height: 1px; /* Specifying the height for the line */
-        background-color: #c61313;
-    }
+.underline {
+  position: absolute;
+  left: -90%;
+  top: 160%;
+  width: 200%;
+  height: 1px;
+  background-color: var(--crimson);
+}
 </style>

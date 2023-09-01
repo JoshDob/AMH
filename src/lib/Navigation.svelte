@@ -1,77 +1,114 @@
 <script>
-    import { link } from 'svelte-routing';
-    let galleriesOpen = false;
-    let aboutOpen = false;
-    let journalOpen = false;
+  import { Link } from 'svelte-routing';
+  let openSection = null;
+  let activeLink = 'home'; // Added to track the active link
+
+  function toggleSection(section) {
+    openSection = openSection === section ? null : section;
+    activeLink = section; // Set the active link
+  }
+  
+  function setActiveLink(link) {
+    activeLink = link;
+  }
 </script>
 
-<nav class="navigation">
-    <a href="/" use:link>Home</a>
-    <div class="nav-section" on:click={() => galleriesOpen = !galleriesOpen}>
-        <span>Galleries</span>
-        <div class="submenu" class:open={galleriesOpen}>
-            <a href="/gallery/roses" use:link>Roses</a>
-            <a href="/gallery/arboretum" use:link>The Arboretum</a>
-            <a href="/gallery/botanica-prelude" use:link>Botanica Prelude</a>
-            <a href="/gallery/botanica-symphony" use:link>Botanica Symphony</a>
-            <a href="/gallery/botanica-enigma" use:link>Botanica Enigma</a>
-            <a href="/gallery/in-the-garden" use:link>In The Garden</a>
-        </div>
-    </div>
-    <div class="nav-section" on:click={() => aboutOpen = !aboutOpen}>
-        <span>About</span>
-        <div class="submenu" class:open={aboutOpen}>
-            <a href="/about/photographer" use:link>Photographer</a>
-            <a href="/about/archival-prints" use:link>Archival Prints</a>
-        </div>
-    </div>
-    <div class="nav-section" on:click={() => journalOpen = !journalOpen}>
-        <span>Journal</span>
-        <div class="submenu" class:open={journalOpen}>
-            <a href="/journal/spring" use:link>Spring</a>
-            <a href="/journal/summer" use:link>Summer</a>
-            <a href="/journal/fall" use:link>Fall</a>
-            <a href="/journal/winter" use:link>Winter</a>
-        </div>
-    </div>
-    <a href="/get-in-touch" use:link>Get In Touch</a>
+<nav class="navigation" aria-label="Main Navigation">
+  <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
+  <Link to="#" on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></Link>
+  <div class="submenu" class:open={openSection === 'galleries'}>
+    <Link to="/gallery/roses"><p class:active={activeLink === 'roses'} class="submenu-item">Roses</p></Link>
+    <Link to="/gallery/arboretum"><p class:active={activeLink === 'arboretum'} class="submenu-item">The Arboretum</p></Link>
+    <Link to="/gallery/botanica-prelude"><p class:active={activeLink === 'botanica-prelude'} class="submenu-item">Botanica Prelude</p></Link>
+    <Link to="/gallery/botanica-symphony"><p class:active={activeLink === 'botanica-symphony'} class="submenu-item">Botanica Symphony</p></Link>
+    <Link to="/gallery/botanica-enigma"><p class:active={activeLink === 'botanica-enigma'} class="submenu-item">Botanica Enigma</p></Link>
+    <Link to="/gallery/in-the-garden"><p class:active={activeLink === 'in-the-garden'} class="submenu-item">In The Garden</p></Link>
+  </div>
+  <Link to="#" on:click={() => toggleSection('about')}><p class="nav-item" class:open-nav-item={openSection === 'about'} class:active={activeLink === 'about'}>About</p></Link>
+  <div class="submenu" class:open={openSection === 'about'}>
+    <Link to="/about/photographer"><p class:active={activeLink === 'photographer'} class="submenu-item">Photographer</p></Link>
+    <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Archival Prints</p></Link>
+    <Link to="/about/cv"><p class:active={activeLink === 'cv'} class="submenu-item">Curricula Vitae</p></Link>
+  </div>
+  <Link to="#" on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></Link>
+  <div class="submenu" class:open={openSection === 'journal'}>
+    <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
+    <Link to="/journal/summer"><p class:active={activeLink === 'summer'} class="submenu-item">Summer</p></Link>
+    <Link to="/journal/fall"><p class:active={activeLink === 'fall'} class="submenu-item">Fall</p></Link>
+    <Link to="/journal/winter"><p class:active={activeLink === 'winter'} class="submenu-item">Winter</p></Link>
+  </div>
+  <Link to="/get-in-touch" on:click={() => setActiveLink('get-in-touch')}><p class="nav-item" class:active={activeLink === 'get-in-touch'}>Get In Touch</p></Link>
 </nav>
 
 <style>
-    .navigation {
-        width: 15rem;
-        background-color: #FAFAFA;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        font-family: 'EB Garamond', serif;
-    }
 
-    .nav-section > span {
-        font-size: 1.25rem;
-        cursor: pointer;
-        padding: 0.5rem 0;
-    }
+.navigation {
+  position: fixed;
+  top: 12vh;  
+  left: 0;
+  height: calc(100% - 12vh);  
+  width: 16vw;  
+  background-color: var(--color1);  
+  padding: var(--b1);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-accent);
+  font-size: var(--c);
+  min-width: 20rem;
+}
 
-    .submenu {
-        display: none; /* Initially hidden */
-        padding-left: 1rem;
-        flex-direction: column; /* List items vertically */
-    }
+.nav-item,
+.submenu-item {
+  cursor: pointer;
+  top: var(--c1);
+  padding: var(--d2) var(--d1);
+  position: relative;
+  color: var(--color2);
+  display: block;
+  overflow: hidden;
+}
 
-    .submenu.open {
-        display: flex; /* Show the submenu when the .open class is applied */
-    }
+.nav-item::before,
+.submenu-item::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--crimson);
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
 
-    a {
-        text-decoration: none;
-        color: #333;
-        padding: 0.25rem 0;
-        font-size: 1rem;
-    }
+.submenu-item:hover:active,
+.nav-item:hover:active {
+  color: var(--crimson);
+}
 
-    a:hover {
-        text-decoration: underline;
-        color: #000;
-    }
+.nav-item:hover::before,
+.submenu-item:hover::before {
+  width: 75%;
+  visibility: visible;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: var(--d1);
+}
+
+.submenu.open {
+  display: block;
+}
+
+.submenu-item {
+  border-left: 1px solid var(--crimson);
+  padding-left: var(--b2);
+}
+
+.open-nav-item:hover::before {
+  width: 0;
+  visibility: hidden;
+}
 </style>

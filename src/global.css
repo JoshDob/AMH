@@ -1,6 +1,97 @@
-body {
-    margin: 0;
-    font-family: 'EB Garamond', serif;
-    color: #333;
-    background-color: #FAFAFA; /* Updated to a lighter color */
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+/* Variables */
+  /* Sizing & Rhythm */
+  :root {
+    /* Base Unit */
+    --a: 0.5rem; 
+  
+    /* Incremental Steps for Base */
+    --a1: calc(var(--a) * 1.25);
+    --a2: calc(var(--a) * 1.5);
+    --a3: calc(var(--a) * 1.75);
+  
+    /* Scaled Units */
+    --b: calc(var(--a) * 2);  
+    --c: calc(var(--a) * 3);  
+    --d: calc(var(--a) * 4);  
+    --e: calc(var(--a) * 5);
+    --f: calc(var(--a) * 6);
+    --g: calc(var(--a) * 7);
+  
+    /* Incremental Steps for Scaled Units */
+    --b1: calc(var(--b) * 1.25);
+    --b2: calc(var(--b) * 1.5);
+  
+    --c1: calc(var(--c) * 1.25);
+    --c2: calc(var(--c) * 1.5);
+  
+    --d1: calc(var(--d) * 1.25);
+    --d2: calc(var(--d) * 1.5);
+  
+    --e1: calc(var(--e) * 1.25);
+    --e2: calc(var(--e) * 1.5);
+  
+    --f1: calc(var(--f) * 1.25);
+    --f2: calc(var(--f) * 1.5);
+  
+    --g1: calc(var(--g) * 1.25);
+    --g2: calc(var(--g) * 1.5);
+  
+    /* Header & Nav Specific */
+    --h: 8vh;
+    --w: 16vw;
+  
+  
+  /* Typography */
+  --font-body: 'Merriweather', serif;
+  --font-accent: 'Cinzel', serif;
+
+  /* Color Palette */
+  --color1: #FAFAFA; /* General Background */
+  --color2: #002928; /* Primary Text */
+  --color3: #C1C5C5; /* Secondary Text */
+  --color4: #3E534E; /* Tertiary Text */
+  --color5: #EAECEB; /* Accent Background */
+  --color6: #697577; /* UI Elements */
+  --crimson: #960577; /* Lines and menus */
+}
+
+/* Global Reset and Basic Stylings */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none !important;
+}
+
+body, html {
+  font-family: var(--font-body);
+  font-size: var(--a);
+  line-height: var(--c);
+  color: var(--color2);
+  background-color: var(--color1);
+}
+
+a {
+  color: var(--color2);
+  text-decoration: none !important;
+}
+
+button {
+  background-color: var(--crimson);
+  color: var(--color1);
+  padding: calc(var(--a) / 2) var(--c);
+  border: none;
+  border-radius: calc(var(--a) / 4);
+  cursor: pointer;
+}
+
+.container {
+  max-width: calc(var(--d) * 10);
+  margin: 0 auto;
+  padding: var(--c);
 }
