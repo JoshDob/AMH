@@ -1,57 +1,99 @@
 <script>
-  import Roses from './1-Roses.svelte';
-  import Arboretum from './2-TheArboretum.svelte';
-  import BotanicaPrelude from './3-BotanicaPrelude.svelte';
-  import BotanicaSymphony from './4-BotanicaSymphony.svelte';
-  import BotanicaEnigma from './5-BotanicaEnigma.svelte';
-  import InTheGarden from './6-InTheGarden.svelte';
+  export let images = [];
 
-  let currentGallery = 'Roses'; // Default gallery
+  let activeImage = 0;
 
-  function setGallery(gallery) {
-    currentGallery = gallery;
-  }
 </script>
 
-<div class="gallery-layout">
-  <div class="gallery-navigation">
-    <button on:click={() => setGallery('Roses')}>Roses</button>
-    <button on:click={() => setGallery('Arboretum')}>Arboretum</button>
-    <button on:click={() => setGallery('BotanicaPrelude')}>Botanica Prelude</button>
-    <button on:click={() => setGallery('BotanicaSymphony')}>Botanica Symphony</button>
-    <button on:click={() => setGallery('BotanicaEnigma')}>Botanica Enigma</button>
-    <button on:click={() => setGallery('InTheGarden')}>In The Garden</button>
+<div class='layout'> 
+  <div class='hero'>
+    <img src={images[activeImage]?.src} alt=''/>
+    <div class='titles'>
+      <p>{images[activeImage]?.title}</p>
+      <p class='latin'>{images[activeImage]?.latinName}</p>
+    </div>
   </div>
-
-  <div class="gallery-content">
-    {#if currentGallery === 'Roses'}
-      <Roses />
-    {:else if currentGallery === 'Arboretum'}
-      <Arboretum />
-    {:else if currentGallery === 'BotanicaPrelude'}
-      <BotanicaPrelude />
-    {:else if currentGallery === 'BotanicaSymphony'}
-      <BotanicaSymphony />
-    {:else if currentGallery === 'BotanicaEnigma'}
-      <BotanicaEnigma />
-    {:else if currentGallery === 'InTheGarden'}
-      <InTheGarden />
-    {/if}
+  <div class='thumbnail-frame'>
+    <div class='thumbnails'>
+      {#each images as image, i}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div class='thumbnail'>
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          <img src={image.src} alt='' on:click={() => activeImage = i}/>
+        </div>
+      {/each}
+    </div>
   </div>
 </div>
 
 <style>
-  .gallery-layout {
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Start from left */
+  margin-top: var(--c);
+  height: 100%;
+  
+}
+
+  .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    }
+
+  .hero img {
+    object-fit: contain;
+    margin: auto;
+    max-width: 600px;
+    max-height: 550px;
+    
   }
-  .gallery-navigation {
+
+  .titles {
     display: flex;
-    gap: 1rem;
-  }
-  .gallery-content {
-    margin-top: 2rem;
+    justify-content: space-evenly;  /* Center the titles */
     width: 100%;
+    font-family: 'Merriweather', serif;
+    color: var(--color2);
+    font-size: var(--a1);
+    font-weight: 300;
+    margin-top: var(--a1);
+    text-align: center;
   }
+
+  .latin {
+    font-style: italic;
+  }
+
+  .thumbnail-frame {
+    border: none;  /* Removed border */
+    overflow-y: auto;
+    padding-right: var(--b);
+    max-height: 240px;
+    scroll-behavior: smooth;
+  }
+
+  .thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;  /* Increased gap between thumbnails */
+    margin-left: var(--d1);
+  }
+
+  .thumbnail img {
+    width: 80px;  /* Made smaller */
+    cursor: pointer;
+  }
+
+  /* Add a media query for smaller screens */
+@media (max-width: 768px) {
+  .hero img {
+    max-width: 100%;
+  }
+  .thumbnail-frame {
+    max-width: 100%;
+  }
+}
 </style>

@@ -15,7 +15,7 @@
 
 <nav class="navigation" aria-label="Main Navigation">
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
-  <Link to="#" on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></Link>
+  <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>
     <Link to="/gallery/roses"><p class:active={activeLink === 'roses'} class="submenu-item">Roses</p></Link>
     <Link to="/gallery/arboretum"><p class:active={activeLink === 'arboretum'} class="submenu-item">The Arboretum</p></Link>
@@ -24,13 +24,13 @@
     <Link to="/gallery/botanica-enigma"><p class:active={activeLink === 'botanica-enigma'} class="submenu-item">Botanica Enigma</p></Link>
     <Link to="/gallery/in-the-garden"><p class:active={activeLink === 'in-the-garden'} class="submenu-item">In The Garden</p></Link>
   </div>
-  <Link to="#" on:click={() => toggleSection('about')}><p class="nav-item" class:open-nav-item={openSection === 'about'} class:active={activeLink === 'about'}>About</p></Link>
+  <a on:click={() => toggleSection('about')}><p class="nav-item" class:open-nav-item={openSection === 'about'} class:active={activeLink === 'about'}>About</p></a>
   <div class="submenu" class:open={openSection === 'about'}>
     <Link to="/about/photographer"><p class:active={activeLink === 'photographer'} class="submenu-item">Photographer</p></Link>
     <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Archival Prints</p></Link>
-    <Link to="/about/cv"><p class:active={activeLink === 'cv'} class="submenu-item">Curricula Vitae</p></Link>
+    <Link to="/about/background"><p class:active={activeLink === 'background'} class="submenu-item">Background</p></Link>
   </div>
-  <Link to="#" on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></Link>
+  <a on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></a>
   <div class="submenu" class:open={openSection === 'journal'}>
     <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
     <Link to="/journal/summer"><p class:active={activeLink === 'summer'} class="submenu-item">Summer</p></Link>
@@ -43,29 +43,31 @@
 <style>
 
 .navigation {
-  position: fixed;
-  top: 12vh;  
-  left: 0;
-  height: calc(100% - 12vh);  
-  width: 16vw;  
-  background-color: var(--color1);  
-  padding: var(--b1);
   display: flex;
+  width: 175px;  
+  flex-shrink: 0;
+  background-color: var(--color1);
   flex-direction: column;
-  font-family: var(--font-accent);
-  font-size: var(--c);
-  min-width: 20rem;
+  font-family: var(--cinzel);
+  padding-top: var(--b);
 }
 
-.nav-item,
+.nav-item
+{
+  cursor: pointer;
+  padding: var(--a1) var(--b);
+  position: sticky;
+  display: block;
+  color: var(--color2);
+  align-content: center;
+ }
+
 .submenu-item {
   cursor: pointer;
-  top: var(--c1);
-  padding: var(--d2) var(--d1);
+  padding: 0.5rem var(--b);
   position: relative;
-  color: var(--color2);
   display: block;
-  overflow: hidden;
+  color: var(--color2);
 }
 
 .nav-item::before,
@@ -78,7 +80,7 @@
   left: 0;
   background-color: var(--crimson);
   visibility: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
 }
 
 .submenu-item:hover:active,
@@ -95,7 +97,7 @@
 .submenu {
   display: none;
   flex-direction: column;
-  padding-left: var(--d1);
+  padding-left: var(--b1);
 }
 
 .submenu.open {
@@ -104,7 +106,7 @@
 
 .submenu-item {
   border-left: 1px solid var(--crimson);
-  padding-left: var(--b2);
+  padding-left: 1rem;
 }
 
 .open-nav-item:hover::before {

@@ -1,0 +1,145 @@
+
+
+
+export const roses = [
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/GALLERIES/Roses/1-1604.JPG'},
+    { title: 'Carding Mill', latinName: 'Carding Mill', src: '/GALLERIES/Roses/2-6806.JPG' },
+    { title: 'Abraham Darby', latinName: 'Abraham Darby', src: '/GALLERIES/Roses/3-7216.JPG' },
+    { title: 'Rose I', latinName: 'Rosa I', src: '/GALLERIES/Roses/4-6340.JPG' },
+    { title: 'Rose II', latinName: 'Rosa II', src: '/GALLERIES/Roses/5-7228.JPG' },
+    { title: 'Heritage', latinName: 'Heritage', src: '/GALLERIES/Roses/6-6156.JPG' },
+    { title: 'Gene Boerner', latinName: 'Gene Boerner', src: '/GALLERIES/Roses/7-7281.JPG' },
+    { title: 'Rose III', latinName: 'Rosa III', src: '/GALLERIES/Roses/8-9330.JPG' },
+    { title: 'Rose IV', latinName: 'Rosa IV', src: '/GALLERIES/Roses/9-1745.JPG' },
+    { title: 'Rose V', latinName: 'Rosa V', src: '/GALLERIES/Roses/10-6220.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/GALLERIES/Roses/11-7258.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/GALLERIES/Roses/12-7242.JPG' },
+    { title: 'Rose VI', latinName: 'Rosa VI', src: '/GALLERIES/Roses/13-7994.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/GALLERIES/Roses/14-9323.JPG' },
+    { title: 'Rose VII', latinName: 'Rosa VII', src: '/GALLERIES/Roses/15-6398.JPG' },
+    { title: 'Lady of Shalott', latinName: 'Lady of Shalott', src: '/GALLERIES/Roses/16-7207.JPG' },
+    { title: 'Heritage', latinName: 'Heritage', src: '/GALLERIES/Roses/17-6768.JPG' },
+    { title: 'R Gallica Officinalis', latinName: 'R Gallica Officinalis', src: '/GALLERIES/Roses/18-2100.JPG' }
+];
+
+export const arboretum = [
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Arboretum/1-1522-2.jpg' },
+    { title: 'Columbine', latinName: 'Aquilegia', src: '/GALLERIES/Arboretum/2-0027-2.JPG' },
+    { title: 'Magnolia', latinName: 'Magnolia grandiflora', src: '/GALLERIES/Arboretum/3-2121-2.JPG' },
+    { title: 'Clematis', latinName: 'Clematis', src: '/GALLERIES/Arboretum/4-1300-2.JPG' },
+    { title: 'Dogwood', latinName: 'Cornus florida', src: '/GALLERIES/Arboretum/5-8145.JPG' },
+    { title: 'Hypericum', latinName: 'Hypericaceae', src: '/GALLERIES/Arboretum/6-1929-2.JPG' },
+    { title: 'Gardenia', latinName: 'Gardenia jasminoides', src: '/GALLERIES/Arboretum/7-2035-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Arboretum/8-1480-2.jpg' },
+    { title: 'Redbud', latinName: 'Cercis canadensis', src: '/GALLERIES/Arboretum/9-2099-2.JPG' },
+    { title: 'Honeysuckle', latinName: 'Lonicera', src: '/GALLERIES/Arboretum/10-1057-2.JPG' },
+    { title: 'Bald cypress seed pod', latinName: 'Taxodium distichum', src: '/GALLERIES/Arboretum/11-2245-2.JPG' },
+    { title: 'Sunflower', latinName: 'Helianthus', src: '/GALLERIES/Arboretum/12-2487-2.JPG' },
+    { title: 'Asiatic Lily ‘Pink Morning’', latinName: 'Lilium ‘Pink Morning’', src: '/GALLERIES/Arboretum/13-8711-2.JPG' },
+    { title: 'Dianthus ‘Sweet William’', latinName: 'Dianthus caryophyllus ‘Sweet William’', src: '/GALLERIES/Arboretum/14-8042-2.JPG' },
+    { title: 'Purple Coneflower', latinName: 'Echinacea purpurea', src: '/GALLERIES/Arboretum/15-8345.JPG' },
+    { title: 'Poppy', latinName: 'Papaver', src: '/GALLERIES/Arboretum/16-8155-2.JPG' },
+    { title: 'Asiatic Lily', latinName: 'Lilium', src: '/GALLERIES/Arboretum/17-2016.JPG' },
+    { title: 'Summer snowflake', latinName: 'Leucojum', src: '/GALLERIES/Arboretum/18-9170-2.JPG' },
+    { title: 'Canna', latinName: 'Canna', src: '/GALLERIES/Arboretum/19-8891-2.JPG' },
+    { title: 'Prairie dropseed', latinName: 'Sporobolus heterolepis', src: '/GALLERIES/Arboretum/20-8383-2.JPG' },
+    { title: 'Purple Coneflower', latinName: 'Echinacea purpurea', src: '/GALLERIES/Arboretum/21-8744-2.JPG' }
+  ];
+
+  export const botanica1 = [
+    { title: 'Magnolia', latinName: 'Magnolia grandiflora', src: '/GALLERIES/Botanica1/1-1762-3.JPG' },
+    { title: 'Clematis', latinName: 'Clematis', src: '/GALLERIES/Botanica1/2-1266-2.JPG' },
+    { title: 'Poppy', latinName: 'Papaver', src: '/GALLERIES/Botanica1/3-8099-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica1/4-1328.JPG' },
+    { title: 'Curly Juncus and creeping Jenny', latinName: 'Juncus spiralis with Lysimachia nummularia', src: '/GALLERIES/Botanica1/5-9790-2.JPG' },
+    { title: 'Concord grapes', latinName: 'Vitis labrusca', src: '/GALLERIES/Botanica1/6-2343-2.JPG' },
+    { title: 'Eggplant flower', latinName: 'Solanum melongena', src: '/GALLERIES/Botanica1/7-2709.JPG' },
+    { title: 'Rose bud', latinName: 'Rosa centifolia', src: '/GALLERIES/Botanica1/8-1635-2.JPG' },
+    { title: '??? bud and brown branches', latinName: 'Unknown', src: '/GALLERIES/Botanica1/9-8817.JPG' },
+    { title: 'Phlox', latinName: 'Phlox paniculata', src: '/GALLERIES/Botanica1/10-1828-2.JPG' },
+    { title: 'Rose cane', latinName: 'Rosa truncus', src: '/GALLERIES/Botanica1/11-9024.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica1/12-1493-2.JPG' },
+    { title: 'Spiderwort', latinName: 'Tradescantia', src: '/GALLERIES/Botanica1/13-1137-2.JPG' },
+    { title: 'Oats', latinName: 'Avena sativa', src: '/GALLERIES/Botanica1/14-2775.JPG' },
+    { title: 'Salvia', latinName: 'Salvia officinalis', src: '/GALLERIES/Botanica1/15-8783-2.JPG' },
+    { title: 'Concord grapes', latinName: 'Vitis labrusca', src: '/GALLERIES/Botanica1/16-2349-2.JPG' },
+    { title: 'Rose ‘Carding Mill’', latinName: 'Rosa ‘Carding Mill’', src: '/GALLERIES/Botanica1/17-6789-2.JPG' },
+    { title: 'Garlic', latinName: 'Allium sativum', src: '/GALLERIES/Botanica1/18-8798-3.JPG' },
+    { title: 'Gladiolus', latinName: 'Gladiolus', src: '/GALLERIES/Botanica1/19-8519-2.JPG' },
+    { title: 'Dogwood', latinName: 'Cornus florida', src: '/GALLERIES/Botanica1/20-9050.jpg' }
+];
+
+export const botanica2 = [
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica2/1-1317.JPG' },
+    { title: 'Magnolia', latinName: 'Magnolia grandiflora', src: '/GALLERIES/Botanica2/2-1922-2.JPG' },
+    { title: 'Lotus', latinName: 'Nelumbo', src: '/GALLERIES/Botanica2/3-2181-2.JPG' },
+    { title: 'Lotus', latinName: 'Nelumbo', src: '/GALLERIES/Botanica2/4-2163-2.JPG' },
+    { title: 'Magnolia', latinName: 'Magnolia grandiflora', src: '/GALLERIES/Botanica2/5-2106-2.JPG' },
+    { title: 'Zinnia', latinName: 'Zinnia sp', src: '/GALLERIES/Botanica2/6-8484-2.JPG' },
+    { title: 'Gardenia', latinName: 'Gardenia jasminoides', src: '/GALLERIES/Botanica2/7-1215-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica2/8-1480-2.JPG' },
+    { title: 'Bromeliad', latinName: 'Aechmea fasciata', src: '/GALLERIES/Botanica2/9-0912-2.JPG' },
+    { title: 'Lotus', latinName: 'Nelumbo', src: '/GALLERIES/Botanica2/10-2217-2.JPG' },
+    { title: 'Bald cypress', latinName: 'Taxodium distichum', src: '/GALLERIES/Botanica2/11-2252-2.JPG' },
+    { title: 'Columbine', latinName: 'Aquilegia', src: '/GALLERIES/Botanica2/12-0045-2.JPG' },
+    { title: 'Lotus', latinName: 'Nelumbo', src: '/GALLERIES/Botanica2/13-2184-2.JPG' },
+    { title: 'Lotus', latinName: 'Nelumbo', src: '/GALLERIES/Botanica2/14-2204-2.JPG' },
+    { title: 'Purple Coneflower', latinName: 'Echinacea', src: '/GALLERIES/Botanica2/15-8740-2.JPG' },
+    { title: 'Hibiscus', latinName: 'Hibiscus rosa-sinensis', src: '/GALLERIES/Botanica2/16-0718-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica2/17-1522-2.JPG' },
+    { title: 'Clematis', latinName: 'Clematis', src: '/GALLERIES/Botanica2/18-1013-2.JPG' },
+    { title: 'Zinnia', latinName: 'Zinnia sp', src: '/GALLERIES/Botanica2/19-8505.JPG' },
+    { title: 'Agave', latinName: 'Agave', src: '/GALLERIES/Botanica2/20-0742-2.JPG' },
+    { title: 'Zinnia', latinName: 'Zinnia sp', src: '/GALLERIES/Botanica2/21-8542.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Botanica2/22-1810-2.JPG' }
+];
+
+export const botanica3 = [
+    { title: 'Swiss chard', latinName: 'Beta vulgaris L.', src: '/GALLERIES/Botanica3/1-1000.jpg' },
+    { title: 'Brussel sprouts', latinName: 'Brassica oleracea', src: '/GALLERIES/Botanica3/2-2725.JPG' },
+    { title: 'Moth orchid', latinName: 'Phalaenopsis', src: '/GALLERIES/Botanica3/3-9762-2.JPG' },
+    { title: '??? pink flower', latinName: '', src: '/GALLERIES/Botanica3/4-9741-2.JPG' },
+    { title: 'Elephant ear', latinName: 'Alocasia', src: '/GALLERIES/Botanica3/5-0731-2.JPG' },
+    { title: 'Rose ‘Cherry Parfait’', latinName: 'Rosa ‘Cherry Parfait’', src: '/GALLERIES/Botanica3/6-7302-2.JPG' },
+    { title: 'Orchid', latinName: 'Phalaenopsis', src: '/GALLERIES/Botanica3/7-1416.JPG' },
+    { title: 'Elephant ear', latinName: 'Alocasia', src: '/GALLERIES/Botanica3/8-8805-2.JPG' },
+    { title: 'Air plant', latinName: 'Tillandsia', src: '/GALLERIES/Botanica3/9-0981.JPG' },
+    { title: 'Orchid', latinName: 'Phalaenopsis', src: '/GALLERIES/Botanica3/10-1849-2.JPG' },
+    { title: 'Agave variety', latinName: '', src: '/GALLERIES/Botanica3/11-2278-2.jpg' },
+    { title: 'Flapjack', latinName: 'Kalanchoe thrysifolia', src: '/GALLERIES/Botanica3/12-2392-2.JPG' },
+    { title: 'Moth orchid', latinName: 'Phalaenopsis', src: '/GALLERIES/Botanica3/13-1415-2.JPG' },
+    { title: 'Elephant ear', latinName: 'Alocasia', src: '/GALLERIES/Botanica3/14-8896-2.JPG' },
+    { title: 'Orchid', latinName: 'Phaloenopsis', src: '/GALLERIES/Botanica3/15-9747-2.JPG' },
+    { title: 'Gardenia', latinName: 'Gardenia jasminoides', src: '/GALLERIES/Botanica3/16-1390-2.JPG' },
+    { title: 'Elephant ear', latinName: 'Alocasia', src: '/GALLERIES/Botanica3/17-0672.JPG' },
+    { title: 'Spiderwort', latinName: 'Tradescantia', src: '/GALLERIES/Botanica3/18-1250-2.JPG' },
+    { title: 'Grapevine', latinName: 'Vitis vinifera', src: '/GALLERIES/Botanica3/19-1092-2.JPG' },
+    { title: 'Orchid', latinName: 'Phalaenopsis', src: '/GALLERIES/Botanica3/20-9766-2.JPG' },
+    { title: 'White Bird of Paradise', latinName: 'Strelitzia nicolai', src: '/GALLERIES/Botanica3/21-9804-2.JPG' },
+    { title: 'Aloe vera', latinName: 'Aloe vera', src: '/GALLERIES/Botanica3/22-2281-2.JPG' }
+];
+
+
+export const garden = [
+    { title: 'Columbine', latinName: 'Aquilegia', src: '/GALLERIES/Garden/1-0021-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Garden/2-1541-2.jpg' },
+    { title: 'Coneflower', latinName: 'Echinacea', src: '/GALLERIES/Garden/3-1983-2.JPG' },
+    { title: 'Kale', latinName: 'Brassica oleracea', src: '/GALLERIES/Garden/4-3170.JPG' },
+    { title: 'Rose ‘Cherry Parfait’', latinName: 'Rosa ‘Cherry Parfait’', src: '/GALLERIES/Garden/5-7307-2.JPG' },
+    { title: 'Lenten Rose', latinName: 'Helleborus', src: '/GALLERIES/Garden/6-0777.JPG' },
+    { title: 'Gardenia', latinName: 'Gardenia jasminoides', src: '/GALLERIES/Garden/7-1243-2.JPG' },
+    { title: 'Leadwort', latinName: 'Plumbago', src: '/GALLERIES/Garden/8-2185-2.JPG' },
+    { title: 'Wild Bergamot', latinName: 'Monarda fistulosa', src: '/GALLERIES/Garden/9-2187-2.JPG' },
+    { title: 'Apple', latinName: 'Malus pumila', src: '/GALLERIES/Garden/10-2398-2.JPG' },
+    { title: 'Red yucca', latinName: 'Hesperaloe parviflora', src: '/GALLERIES/Garden/11-2158.JPG' },
+    { title: 'Papaya', latinName: 'Carica papaya', src: '/GALLERIES/Garden/12-2329-2.JPG' },
+    { title: 'Iris', latinName: 'Iris', src: '/GALLERIES/Garden/13-1160-2.JPG' },
+    { title: 'Cactus', latinName: 'Cactaceae', src: '/GALLERIES/Garden/14-2286-2.JPG' },
+    { title: 'Purple Coneflower', latinName: 'Echinacea purpurea', src: '/GALLERIES/Garden/15-8737-2.JPG' },
+    { title: 'Asian pear', latinName: 'Pyrus pyrifolia', src: '/GALLERIES/Garden/16-2808-2.JPG' },
+    { title: 'Sea Thrift', latinName: 'Armeria maritima', src: '/GALLERIES/Garden/17-0998-2.JPG' },
+    { title: 'Lenten Rose', latinName: 'Helleborus', src: '/GALLERIES/Garden/18-0772-2.JPG' },
+    { title: 'Clematis', latinName: 'Clematis', src: '/GALLERIES/Garden/19-8458-2.JPG' },
+    { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/GALLERIES/Garden/20-1573-2.JPG' }
+];
+

@@ -1,0 +1,151 @@
+IMAGE TTLES v.2
+
+Gallery 1 The Rose Garden
+
+1. Rose ‘Golden Celebration’ Rosa ‘Golden Celebration’
+2. Rose ‘Carding Mill’ Rosa ‘Carding Mill’
+3. Rose ‘Abraham Darby’ Rosa ‘Abraham Darby’
+4. Rose I Rosa I
+5. Rose II Rosa II
+6. Rose ‘Heritage’ Rosa ‘Heritage’
+7. Rose ‘Gene Boerner’ Rosa ‘Gene Boerner’
+8. Rose III Rosa III
+9. Rose IV Rosa IV
+10. Rose V Rosa V
+11. Rose ‘Golden Celebration’ Rosa ‘Golden Celebration’
+12. Rose ‘Golden Celebration’ Rosa ‘Golden Celebration’
+13. Rose VI Rosa VI
+14. Rose ‘Golden Celebration’ Rosa ‘Golden Celebration’
+15. Rose VII Rosa VII
+16. Rose ‘Lady of Shalott’ Rosa ‘Lady of Shalott’
+17. Rose ‘Heritage’ Rosa ‘Heritage’
+18. Rose ‘R Gallica Officinalis’ Rosa ‘R Gallica Officinalis’
+19. Rose ‘Carding Mill’ Rosa ‘Carding Mill’
+20. Rose ‘Cherry Parfait’ Rosa ‘Cherry Parfait’
+21. Rose ‘Cherry Parfait’ Rosa ‘Cherry Parfait’
+22. Rose VIII Rosa VIII
+23. Rose IX Rosa IX
+24. Rose ‘Old Blush China’ Rosa ‘Old Blush China’
+25. Rose ‘French Lace’ Rosa ‘French Lace’
+26. Rose XI Rosa XI
+
+Gallery 2 The Arboretum
+
+1. Peony Paeonia lactiflora
+2. Columbine Aquilegia 
+3. Magnolia Magnolia grandiflora
+4. Clematis Clematis
+5. Dogwood Cornus florida
+6. Hypericum Hypericaceae
+7. Gardenia Gardenia jasminoides
+8. Peony Paeonia lactiflora 
+9. Redbud Cercis canadensis
+10. Honeysuckle Lonicera
+11. Bald cypress seed pod Taxodium distichum 
+12. Sunflower Helianthus
+13. Asiatic Lily ‘Pink Morning’ Lilium ‘Pink Morning’
+14. Dianthus ‘Sweet William’ Dianthus caryophyllus ‘Sweet William’
+15. Purple Coneflower Echinacea purpurea
+16. Poppy Papaver 
+17. Asiatic Lily Lilium 
+18. Summer snowflake Leucojum  
+19. Canna Canna
+20. Prairie dropseed Sporobolus heterolepis
+21. Purple Coneflower Echinacea purpurea
+22. Clematis Clematis
+
+Gallery 3 Botanica Prelude
+
+1. Magnolia Magnolia grandiflora
+2. Clematis Clematis
+3. Papaver- Poppy
+4. Peony Paeonia lactiflora
+5. Curly Juncus and creeping Jenny Juncus spiralis with Lysimachia nummularia 
+6. Concord grapes Vitis labrusca
+7. Eggplant flower Solanum melongena
+8. Rose bud Rosa centifolia
+9. ??? bud and brown branches
+10. Phlox Phlox paniculata 
+11. Rose cane Rosa truncus
+12. Peony Paeonia lactiflora
+13. Spiderwort Tradescantia 
+14. Oats Avena sativa
+15. Salvia Salvia officinalis
+16. Concord grapes Vitis labrusca
+17. Rose ‘Carding Mill’ Rosa ‘Carding Mill’ 
+18. Garlic Allium sativum
+19. Gladiolus Gladiolus
+20. Dogwood Cornus florida
+
+Gallery 4 Botanica Symphony
+
+1. Peony Paeonia lactiflora
+2. Magnolia Magnolia grandiflora
+3. Lotus Nelumbo
+4. Lotus Nelumbo
+5. Magnolia Magnolia grandiflora
+6. Zinnia Zinnia sp
+7. Gardenia Gardenia jasminoides
+8. Peony Paeonia lactiflora 
+9. Bromeliad Aechmea fasciata
+10. Lotus Nelumbo
+11. Bald cypress Taxodium distichum
+12. Columbine Aquilegia
+13. Lotus Nelumbo
+14. Lotus Nelumbo
+15. Purple Coneflower - Echinacea
+16. Hibiscus Hibiscus rosa-sinensis
+17. Peony Paeonia lactiflora  
+18. Clematis Clematis
+19. Zinnia Zinnia sp
+20. Agave Agave
+21. Zinnia Zinnia sp
+22. Peony Paeonia lactiflora
+
+Gallery 5 Botanica Enigma
+
+1. Swiss chard Beta vulgaris L.
+2. Brussel sprouts Brassica oleracea
+3. Moth orchid Phalaenopsis  
+4.  ??? pink flower
+5. Elephant ear Alocasia  
+6. Rose ‘Cherry Parfait’ Rosa ‘Cherry Parfait’
+7. Orchid Phalaenopsis
+8. Elephant ear Alocasia  
+9. Air plant Tillandsia
+10. Orchid Phalaenopsis  
+11. Agave variety
+12. Flapjack- Kalanchoe thrysifolia
+13. Moth orchid Phalaenopsis  
+14. Elephant ear Alocasia  
+15. Orchid Phaloenopsis
+16. Gardenia Gardenia jasminoides
+17. Elephant ear Alocasia  
+18. Spiderwort Tradescantia
+19. Grapevine Vitis vinifera
+20. Orchid Phalaenopsis 
+21. White Bird of Paradise Strelitzia nicolai
+22. Aloe vera Aloe vera
+
+Gallery 6 In the Garden
+
+1. Columbine Aquilegia
+2. Peony Paeonia lactiflora
+3. Coneflower Echinacea
+4. Kale Brassica oleracea
+5. Rose ‘Cherry Parfait’ Rosa ‘Cherry Parfait’
+6. Lenten Rose Helleborus 
+7. Gardenia Gardenia jasminoides
+8. Leadwort Plumbago 
+9. Wild Bergamot Monarda fistulosa
+10. Apple Malus pumila
+11. Red yucca Hesperaloe parviflora 
+12. Papaya Carica papaya
+13. Iris Iris
+14. Cactus Cactaceae
+15. Purple Coneflower Echinacea purpurea
+16. Asian pear Pyrus pyrifolia
+17. Sea Thrift Armeria maritima
+18. Lenten Rose Helleborus
+19. Clematis Clematis
+20. Peony Paeonia lactiflora 
