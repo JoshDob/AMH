@@ -3,7 +3,11 @@
   </script>
   
   <div class="contact-container">
-    <h1>Get In Touch</h1>
+    <p class="contact-text">Please get in touch if you’d like to learn more about my work. You can reach me at amh@annemariehunter.com
+
+      "I have promised myself that I’m going to do everything I can for as long as can." 
+      Greta Thunberg
+      </p>
     <form>
       <!-- Your form fields -->
     </form>
