@@ -11,10 +11,6 @@
     import Photographer from './lib/about/1-Photographer.svelte';
     import ArchivalPrints from './lib/about/2-ArchivalPrints.svelte';
     import Background from './lib/about/3-Background.svelte';
-    import JournalSpring from './lib/journal/Spring.svelte';
-    import JournalSummer from './lib/journal/Summer.svelte';
-    import JournalFall from './lib/journal/Fall.svelte';
-    import JournalWinter from './lib/journal/Winter.svelte';
     import GetInTouch from './lib/GetInTouch.svelte';
     import Header from "./lib/Header.svelte";
   </script>
@@ -36,13 +32,12 @@
     <Route path="/about/photographer" component={Photographer} />
     <Route path="/about/archival-prints" component={ArchivalPrints} />
     <Route path="/about/background" component={Background} />
-    <Route path="/journal/spring" component={JournalSpring} />
-    <Route path="/journal/summer" component={JournalSummer} />
-    <Route path="/journal/fall" component={JournalFall} />
-    <Route path="/journal/winter" component={JournalWinter} />
     <Route path="/get-in-touch" component={GetInTouch} />
     </div>
   </div>
+  <footer>
+    <p style="text-align: left; font-size: 0.8rem;">All Images ©AnneMarie Hunter</p>
+  </footer>
   </Router>
 <style>
 .page {
@@ -56,6 +51,15 @@
   justify-content: center; /* Center align the flex items */
   flex-grow: 1; /* Take up all remaining space in the flex container */
 }
+
+footer {
+    position: absolute;
+    bottom: var(--a);
+    left: var(--a);
+    width: 90%;
+    font-family: var(--muli);
+   
+  }
 
 
 

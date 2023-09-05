@@ -1,3 +1,6 @@
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-missing-attribute -->
 <script>
   import { Link } from 'svelte-routing';
   let openSection = null;
@@ -32,10 +35,10 @@
   </div>
   <a on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></a>
   <div class="submenu" class:open={openSection === 'journal'}>
-    <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
+    <!-- <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
     <Link to="/journal/summer"><p class:active={activeLink === 'summer'} class="submenu-item">Summer</p></Link>
     <Link to="/journal/fall"><p class:active={activeLink === 'fall'} class="submenu-item">Fall</p></Link>
-    <Link to="/journal/winter"><p class:active={activeLink === 'winter'} class="submenu-item">Winter</p></Link>
+    <Link to="/journal/winter"><p class:active={activeLink === 'winter'} class="submenu-item">Winter</p></Link> -->
   </div>
   <Link to="/get-in-touch" on:click={() => setActiveLink('get-in-touch')}><p class="nav-item" class:active={activeLink === 'get-in-touch'}>Get In Touch</p></Link>
 </nav>
