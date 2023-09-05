@@ -6,8 +6,10 @@
 </script>
 
 <div class='layout'> 
-  <div class='hero'>
-    <img src={images[activeImage]?.src} alt=''/>
+  <div class='hero-and-titles'>
+    <div class='hero'>
+      <img src={images[activeImage]?.src} alt=''/>
+    </div>
     <div class='titles'>
       <p>{images[activeImage]?.title}</p>
       <p class='latin'>{images[activeImage]?.latinName}</p>
@@ -29,39 +31,52 @@
 <style>
 .layout {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center; /* Start from left */
-  margin-top: var(--c);
-  height: 100%;
-  
+  margin-top: var(--a3);
 }
-
+.hero-and-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+}
   .hero {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    max-width: 100%;
+    align-items: center; /* New line for vertically centering the .hero */
+
     }
 
   .hero img {
     object-fit: contain;
     margin: auto;
-    max-width: 600px;
-    max-height: 550px;
+    max-width: 100%;
+    max-height: 575px;
+    align-self: center; /* Vertically center the image */
+
     
   }
 
   .titles {
     display: flex;
-    justify-content: space-evenly;  /* Center the titles */
-    width: 100%;
+    text-wrap: nowrap;
+    justify-content: center; 
+    align-self: center;
+    width: auto;
+    max-width: 150%;
     font-family: 'Merriweather', serif;
     color: var(--color2);
     font-size: var(--a1);
     font-weight: 300;
-    margin-top: var(--a1);
-    text-align: center;
+    margin-top: var(--a3);
   }
+  .titles p {
+  margin-right: var(--d1); /* Space between titles */
+  margin-left: var(--d1);  /* Space between titles */
+}
 
   .latin {
     font-style: italic;
@@ -70,16 +85,17 @@
   .thumbnail-frame {
     border: none;  /* Removed border */
     overflow-y: auto;
-    padding-right: var(--b);
+    padding-right: var(--c);
     max-height: 240px;
     scroll-behavior: smooth;
+    margin-left: var(--d2);  /* Same distance from hero */
+
   }
 
   .thumbnails {
     display: flex;
     flex-direction: column;
     gap: 4px;  /* Increased gap between thumbnails */
-    margin-left: var(--d1);
   }
 
   .thumbnail img {

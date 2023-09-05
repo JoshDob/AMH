@@ -56,12 +56,12 @@
 
   /* Color Palette */
   --color1: #fafafa; /* General Background */
-  --color2: #002924; /* Primary Text */
+  --color2: #003a33; /* Primary Text */
   --color3: #f2f2e9; /* Secondary Text */
   --color4: #657b6f; /* Tertiary Text */
   --color5: #EAECEB; /* Accent Background */
   --color6: #697577; /* UI Elements */
-  --crimson: #7a1333; /* Lines and menus */
+  --crimson: #9b0333; /* Lines and menus */
 }
 
 /* Global Reset and Basic Stylings */
@@ -80,7 +80,7 @@ body {
   font-family: var(--muli);
   font-size: var(--a);
   color: var(--color2);
-  background-color: var(--color1);
+  background-color: var(--color3);
 }
 
 a {

@@ -46,9 +46,10 @@
   </Router>
 <style>
 .page {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: min-content 1fr;
 }
+
 
 .content {
   display: flex;

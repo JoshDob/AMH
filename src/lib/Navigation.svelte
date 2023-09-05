@@ -44,9 +44,11 @@
 
 .navigation {
   display: flex;
-  width: 175px;  
+  width: auto;  /* Changed from fixed width */
+  min-width: 160px;  /* Set a minimum width */
+  max-width: 20%;  /* Will not take more than 20% of the parent width */
   flex-shrink: 0;
-  background-color: var(--color1);
+  background-color: var(--color3);
   flex-direction: column;
   font-family: var(--cinzel);
   padding-top: var(--b);

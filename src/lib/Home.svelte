@@ -17,33 +17,33 @@
 <style>
   .home-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: var(--c);
+    
+    margin-top: var(--a3);
   }
 
   .image-frame {
     display: flex;
     flex-direction: column;
-    max-width: 75%;
+    max-width: 80%;
     height: auto;
+    align-items: center;
   }
 
   .featured-image {
     width: 100%;
     height: auto;
-    object-fit: contain;
   }
 
   .image-info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     margin-top: var(--a2);
     font-family: var(--merri);
     font-size: var(--a1);
     font-weight: 300;
     color: var(--color2);
+    gap: var(--f3);
     opacity: 0;
     transition: opacity 0.6s ease;
   }
