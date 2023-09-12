@@ -2,6 +2,8 @@
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <!-- svelte-ignore a11y-missing-attribute -->
 <script>
+  import { slide } from 'svelte/transition';
+  import { elasticOut } from 'svelte/easing';
   import { Link } from 'svelte-routing';
   let openSection = null;
   let activeLink = 'home'; // Added to track the active link
@@ -16,7 +18,7 @@
   }
 </script>
 
-<nav class="navigation" aria-label="Main Navigation">
+<nav class="navigation" aria-label="Main Navigation" transition:slide={{duration: 300}}>
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
   <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>
@@ -30,7 +32,7 @@
   <a on:click={() => toggleSection('about')}><p class="nav-item" class:open-nav-item={openSection === 'about'} class:active={activeLink === 'about'}>About</p></a>
   <div class="submenu" class:open={openSection === 'about'}>
     <Link to="/about/photographer"><p class:active={activeLink === 'photographer'} class="submenu-item">Photographer</p></Link>
-    <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Archival Prints</p></Link>
+    <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Prints</p></Link>
     <Link to="/about/background"><p class:active={activeLink === 'background'} class="submenu-item">Background</p></Link>
   </div>
   <a on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></a>
@@ -47,7 +49,10 @@
 
 .navigation {
   display: flex;
+  bottom: 0;
   width: auto;  /* Changed from fixed width */
+  top: var(--header-height); /* Set the top value to the height of the header */
+  height: calc(100vh - var(--header-height));
   min-width: 160px;  /* Set a minimum width */
   max-width: 20%;  /* Will not take more than 20% of the parent width */
   flex-shrink: 0;
@@ -62,7 +67,7 @@
   cursor: pointer;
   padding: var(--a1) var(--b);
   position: sticky;
-  display: block;
+  display: flex;
   color: var(--color2);
   align-content: center;
  }
@@ -71,7 +76,7 @@
   cursor: pointer;
   padding: 0.5rem var(--b);
   position: relative;
-  display: block;
+  display: flex;
   color: var(--color2);
 }
 
@@ -118,4 +123,53 @@
   width: 0;
   visibility: hidden;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    min-width: none;
+    max-width: none;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: var(--e3);
+    width: 100vw;
+    background-color: var(--color3); /* Overlay */
+    z-index: 1000;
+    align-items: center; /* Center the items horizontally */
+    justify-content: top; /* Center the items vertically */
+    font-size: 140%;
+    gap: var(--a1);
+  }
+
+  .nav-item,
+  .submenu-item {
+    text-wrap: nowrap; /* Prevent text wrapping */
+    padding: var(--a) var(--b); /* Add padding to the top and bottom */
+  }
+
+  .submenu {
+    align-items: center; /* Center the submenu items horizontally */
+  }
+
+  .submenu-item::before {
+    display: none; /* Hide the underline */
+  }
+
+ 
+  .submenu-item:hover:active,
+.nav-item:hover:active {
+  color: var(--crimson);
+}
+
+.nav-item:hover::before,
+.submenu-item:hover::before {
+  width: 75%;
+  visibility: visible;
+  left: -var(--b);
+}
+}
+
 </style>

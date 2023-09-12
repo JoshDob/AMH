@@ -1,9 +1,16 @@
 <!-- header.svelte -->
 <script>
   export let sectionTitle = "Fine Art Photography";
+
+  let headerRef;
+  let headerHeight;
+  $: if (headerRef) {
+    headerHeight = headerRef.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+  }
 </script>
 
-<header class="header">
+<header class="header" bind:this={headerRef}>
 <div class="section">
   <div class="client-name">AnneMarie Hunter</div>
   <div class="section-title">{sectionTitle}
@@ -19,6 +26,7 @@
   align-items: baseline;
   gap: var(--c2);
   background-color: transparent;
+  z-index: 1001;
 ;}
 
 .client-name {

@@ -20,7 +20,7 @@
         <strong>Small Print Collection</strong><br>
         Choose six images from any gallery for a collection of 8x10 metal or giclée prints. Prints are shipped in a handcrafted, archival box in which they can be safely stored, presented as a gift or kept until they are displayed.         <br><br>
         <strong>Digital Licensing</strong><br>
-        Images are available for digital media purposes and reproduction, including advertising, editorial or other usage. Options include royalty-free or single-usage rights. 
+        Images are available for digital media purposes and reproduction, including advertising, editorial or other usage.
         <br><br>
       </p>
   

@@ -7,19 +7,19 @@ export const roses = [
     { title: 'Abraham Darby', latinName: 'Abraham Darby', src: '/Galleries/Roses/3-7216.JPG' },
     { title: 'Rose I', latinName: 'Rosa I', src: '/Galleries/Roses/4-6340.JPG' },
     { title: 'Rose II', latinName: 'Rosa II', src: '/Galleries/Roses/5-7228.JPG' },
-    { title: 'Heritage', latinName: 'Heritage', src: '/Galleries/Roses/6-6156.JPG' },
+    { title: 'Heritage', latinName: 'Heritage', src: '/Galleries/Roses/6-6156-2.JPG' },
     { title: 'Gene Boerner', latinName: 'Gene Boerner', src: '/Galleries/Roses/7-7281.JPG' },
-    { title: 'Rose III', latinName: 'Rosa III', src: '/Galleries/Roses/8-9330.JPG' },
-    { title: 'Rose IV', latinName: 'Rosa IV', src: '/Galleries/Roses/9-1745.JPG' },
-    { title: 'Rose V', latinName: 'Rosa V', src: '/Galleries/Roses/10-6220.JPG' },
-    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/11-7258.JPG' },
-    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/12-7242.JPG' },
-    { title: 'Rose VI', latinName: 'Rosa VI', src: '/Galleries/Roses/13-7994.JPG' },
-    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/14-9323.JPG' },
-    { title: 'Rose VII', latinName: 'Rosa VII', src: '/Galleries/Roses/15-6398.JPG' },
-    { title: 'Lady of Shalott', latinName: 'Lady of Shalott', src: '/Galleries/Roses/16-7207.JPG' },
-    { title: 'Heritage', latinName: 'Heritage', src: '/Galleries/Roses/17-6768.JPG' },
-    { title: 'R Gallica Officinalis', latinName: 'R Gallica Officinalis', src: '/Galleries/Roses/18-2100.JPG' }
+    { title: 'Rose III', latinName: 'Rosa III', src: '/Galleries/Roses/8-9330-2.JPG' },
+    { title: 'Rose IV', latinName: 'Rosa IV', src: '/Galleries/Roses/9-1745-2.JPG' },
+    { title: 'Rose V', latinName: 'Rosa V', src: '/Galleries/Roses/10-6220-2.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/11-7258-2.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/12-7242-2.JPG' },
+    { title: 'Rose VI', latinName: 'Rosa VI', src: '/Galleries/Roses/13-7994-2.JPG' },
+    { title: 'Golden Celebration', latinName: 'Golden Celebration', src: '/Galleries/Roses/14-9323-2.JPG' },
+    { title: 'Rose VII', latinName: 'Rosa VII', src: '/Galleries/Roses/15-6398-2.JPG' },
+    { title: 'Lady of Shalott', latinName: 'Lady of Shalott', src: '/Galleries/Roses/16-7207-2.JPG' },
+    { title: 'Heritage', latinName: 'Heritage', src: '/Galleries/Roses/17-6768-2.JPG' },
+    { title: 'R Gallica Officinalis', latinName: 'R Gallica Officinalis', src: '/Galleries/Roses/18-2100-1.JPG' }
 ];
 
 export const arboretum = [
@@ -143,3 +143,6 @@ export const garden = [
     { title: 'Peony', latinName: 'Paeonia lactiflora', src: '/Galleries/Garden/20-1573-2.JPG' }
 ];
 
+export const firstImages = [
+    garden[0], arboretum[0], roses[0], botanica1[0], botanica2[0], botanica3[0]
+]

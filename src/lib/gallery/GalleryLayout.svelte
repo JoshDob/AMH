@@ -1,16 +1,36 @@
 <script>
+  import { onMount } from "svelte";
+  import { fade } from 'svelte/transition';
+  import { elasticOut } from 'svelte/easing';
+
+
   export let images = [];
 
   let activeImage = 0;
 
+  const getThumbnailSrc = (src) => {
+    const [path, ext] = src.split('.');
+    return `${path}-t.${ext}`;
+  };
+
+  onMount(() => {
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = getThumbnailSrc(image.src);
+    });
+  })
 </script>
 
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+
 <div class='layout'> 
+  <div class='space-left'/>
   <div class='hero-and-titles'>
     <div class='hero'>
-      <img src={images[activeImage]?.src} alt=''/>
+      <img src={images[activeImage]?.src} alt='' in:fade={{ delay: 1000, duration: 2000, easing: elasticOut }} />
     </div>
-    <div class='titles'>
+    <div class='titles' in:fade={{ duration: 3000 }}>
       <p>{images[activeImage]?.title}</p>
       <p class='latin'>{images[activeImage]?.latinName}</p>
     </div>
@@ -18,10 +38,9 @@
   <div class='thumbnail-frame'>
     <div class='thumbnails'>
       {#each images as image, i}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class='thumbnail'>
-          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-          <img src={image.src} alt='' on:click={() => activeImage = i}/>
+
+          <img src={getThumbnailSrc(image.src)} alt='' on:click={() => activeImage = i} />
         </div>
       {/each}
     </div>
@@ -31,10 +50,15 @@
 <style>
 .layout {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: var(--a3);
+  width: 100%;
 }
+.space-left {
+  width: var(--d3); /* Space between hero and thumbnails */
+}
+
 .hero-and-titles {
   display: flex;
   flex-direction: column;
@@ -46,6 +70,7 @@
     flex-direction: column;
     justify-content: center;
     max-width: 100%;
+    min-height: 300px;
     align-items: center; /* New line for vertically centering the .hero */
 
     }
@@ -89,18 +114,21 @@
     max-height: 240px;
     scroll-behavior: smooth;
     margin-left: var(--d2);  /* Same distance from hero */
-
+    justify-self: flex-end;
+    scroll-snap-type: y mandatory;
   }
 
   .thumbnails {
     display: flex;
     flex-direction: column;
     gap: 4px;  /* Increased gap between thumbnails */
-  }
+    scroll-snap-type: y mandatory;
+    }
 
   .thumbnail img {
-    width: 80px;  /* Made smaller */
+    width: 100px;  /* Made smaller */
     cursor: pointer;
+    scroll-snap-align: start;
   }
 
   /* Add a media query for smaller screens */
@@ -110,6 +138,16 @@
   }
   .thumbnail-frame {
     max-width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .thumbnails {
+    flex-direction: row;
+    gap: 4px;
+  }
+  .thumbnail img {
+    width: 100px;
+    height: auto;
   }
 }
 </style>

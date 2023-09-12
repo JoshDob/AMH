@@ -13,6 +13,15 @@
     import Background from './lib/about/3-Background.svelte';
     import GetInTouch from './lib/GetInTouch.svelte';
     import Header from "./lib/Header.svelte";
+    import { firstImages } from "./lib/gallery/galleries";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+    firstImages.forEach((image) => {
+      const img = new Image();
+      img.src = image.src;
+    });
+  })
   </script>
   
   
