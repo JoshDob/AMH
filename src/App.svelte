@@ -1,6 +1,7 @@
 <script>
     import { Router, Route, Link } from "svelte-routing";
     import Navigation from './lib/Navigation.svelte';
+    import NavigationMobile from './lib/NavigationMobile.svelte';
     import Home from './lib/Home.svelte';
     import GalleryRoses from './lib/gallery/1-Roses.svelte';
     import GalleryArboretum from './lib/gallery/2-TheArboretum.svelte';
@@ -30,6 +31,7 @@
     <Header />
     <div class='page'>
     <Navigation />
+    <NavigationMobile />
     <div class='content'>
     <Route path="/" component={Home} />
     <Route path="/gallery/roses" component={GalleryRoses} />

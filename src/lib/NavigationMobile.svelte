@@ -6,10 +6,12 @@
   import { elasticOut } from 'svelte/easing';
   import { Link } from 'svelte-routing';
 
-  let isSubmenuOpen = false;
-  function toggleSubmenu() {
-    isSubmenuOpen = !isSubmenuOpen;
+  let menuOpen = true;
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    console.log(menuOpen);
   }
+
   let openSection = null;
   let activeLink = 'home'; // Added to track the active link
 
@@ -22,12 +24,13 @@
     activeLink = link;
   }
 </script>
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 
-<nav class="navigation" aria-label="Main Navigation" class:submenu-open={isSubmenuOpen && windowWidth <= 768}>
+<nav class="navigation" aria-label="Main Navigation" class:closed={!menuOpen}>
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
   <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>
-    <Link to="/gallery/roses"><p class:active={activeLink === 'roses'} class="submenu-item">Roses</p></Link>
+    <Link to="/gallery/roses"><p on:click={toggleMenu} class:active={activeLink === 'roses'} class="submenu-item">Roses</p></Link>
     <Link to="/gallery/arboretum"><p class:active={activeLink === 'arboretum'} class="submenu-item">The Arboretum</p></Link>
     <Link to="/gallery/botanica-prelude"><p class:active={activeLink === 'botanica-prelude'} class="submenu-item">Botanica Prelude</p></Link>
     <Link to="/gallery/botanica-symphony"><p class:active={activeLink === 'botanica-symphony'} class="submenu-item">Botanica Symphony</p></Link>
@@ -130,9 +133,62 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 769px) {
-  .navigation{
+@media (min-width: 769px) {
+  .navigation {
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    min-width: none;
+    max-width: none;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: var(--e3);
+    width: 100vw;
+    background-color: var(--color3); /* Overlay */
+    z-index: 1000;
+    align-items: center; /* Center the items horizontally */
+    justify-content: top; /* Center the items vertically */
+    font-size: 140%;
+    gap: var(--a1);
+  }
+
+  .closed {
+   left: -60vw;
+   border-right: 1px solid var(--crimson);
+  }
+
+  .nav-item,
+  .submenu-item {
+    text-wrap: nowrap; /* Prevent text wrapping */
+    padding: var(--a) var(--b); /* Add padding to the top and bottom */
+  }
+
+  .submenu {
+    align-items: center; /* Center the submenu items horizontally */
+  }
+
+  .submenu-item::before {
+    display: none; /* Hide the underline */
+  }
+
+ 
+  .submenu-item:hover:active,
+.nav-item:hover:active {
+  color: var(--crimson);
+}
+
+.nav-item:hover::before,
+.submenu-item:hover::before {
+  width: 75%;
+  visibility: visible;
+  left: -var(--b);
+}
+}
+
 </style>
