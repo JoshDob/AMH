@@ -6,9 +6,11 @@
   
   <div class="archival-prints-page">
     <div class="content">
-      <p>
-        <strong>All images</strong> are archivally printed as either fine art giclée or metal prints. Available as limited editions in a wide range of sizes, prints are signed and numbered.
+      <p style="text-align: center">
+        All images are archivally printed as either fine art giclée or metal prints. Available as limited editions in a wide range of sizes, prints are signed and numbered.
         <br><br>
+      </p>
+      <p >
         <strong>Fine Art Giclée</strong><br>
         Printed on a paper that resembles the surface of fine watercolor paper, these prints have excellent detail and color reproduction with exceptional depth, richness and vibrancy. The prints have white borders and arrive ready to be matted and framed. Giclée prints are signed and numbered on the front.
         <br><br>
@@ -18,7 +20,7 @@
         <strong>Small Print Collection</strong><br>
         Choose six images from any gallery for a collection of 8x10 metal or giclée prints. Prints are shipped in a handcrafted, archival box in which they can be safely stored, presented as a gift or kept until they are displayed.         <br><br>
         <strong>Digital Licensing</strong><br>
-        Images are available for digital media purposes and reproduction, including advertising, editorial or other usage. Options include royalty-free or single-usage rights. 
+        Images are available for digital media purposes and reproduction, including advertising, editorial or other usage.
         <br><br>
       </p>
   
@@ -33,8 +35,9 @@
   <style>
     .archival-prints-page {
       max-width: 600px;
-      margin: auto;
       text-align: center;
+
+ 
     }
   
     .content p {
@@ -45,12 +48,21 @@
     }
   
     img {
-      width: 100px; /* Adjust the size to fit the design */
-      margin: var(--a) auto;
+      width: 80px; /* Adjust the size to fit the design */
+      margin: var(--b) auto;
+      align-content: center;
+      display: block; /* This will center the image */
+
     }
   
     .contact-info {
       margin-top: var(--a);
+    }
+
+    .content p strong {
+      font-size: var(--a);
+      text-align: center;
+      line-height: var(--b1);
     }
   </style>
   

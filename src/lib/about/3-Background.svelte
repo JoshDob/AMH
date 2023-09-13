@@ -3,12 +3,10 @@
 <script>
     let backgroundSealImage = "/Seal.png"; // Replace this with the actual path
   </script>
-  
-  <div class="background-page">
-    <div class="content">
-  
-      <h2>Photography Clients</h2>
-      <ul class="client-list">
+      <div class="background-page">
+        <div class="content">
+          <h2>Photography Clients</h2>
+          <ul class="client-list">
         <li>Children’s Defense Fund</li>
         <li>Ford Motor Company</li>
         <li>General Motors</li>
@@ -27,7 +25,10 @@
         <li>“H-D Bike Builders”<br>
           55 large-scale images of H-D plants, motorcycles and those who build them.</li>
         <li>Harley-Davidson Motor Company Tour Centers<br>
-          These comprehensive installation projects included images for mural-size prints and graphics included as permanent, integral elements of the building design.</li>
+          <p class="note-text">
+          These comprehensive installation projects included images for mural-size prints and graphics included as permanent, integral elements of the building design.
+        </p>
+        </li>
         <li>Gordon Parks Museum; Fort Scott, KS.</li>
         <li>Museum of Fine Arts; Houston</li>
         <li>Nelson-Atkins Museum of Art; Kansas City</li>
@@ -55,12 +56,11 @@
       <p class="education-text">
         Northwestern University; Evanston, IL. B.S., Communications/Art History<br>
         Southern Oregon University; Ashland, OR. M.A., Art Education, Printmaking and Sculpture*<br>
+        <p class="education-text note-text">
         * Oregon was a journey of discovery for me. Every day in that extraordinary place, I taught and made art — and explored unimaginable natural beauty I’ve never seen or experienced anywhere else.
-      </p>
+        </p>
   
-      <img src="{backgroundSealImage}" alt="AnneMarie Hunter's Seal" />
-  
-      <p class="contact-info">
+      <p class="contact-info note-text">
         Please contact me if you would like to learn more about any of these projects.
       </p>
   
@@ -69,48 +69,48 @@
   
   <style>
     .background-page {
-      max-width: 600px;
-      margin: auto;
-      text-align: center;
-    }
-  
-    .content h2 {
-      font-family: var(--cinzel);
-      color: var(--color3);
-      font-weight: 300;
-      font-size: var(--a1);
-      text-align: left;
-      margin-bottom: var(--a);
-    }
-  
-    ul {
-        list-style-type: none; /* removes bullet points */
-      text-align: left;
-      margin: 0 auto;
-      padding-left: var(--a1);
+    max-width: 600px;
+    text-align: center;
+    margin: var(--d) var(--a);
+  }
 
-    }
-  
-    ul li {
-      margin-bottom: var(--a);
-      line-height: var(--a);
-    }
-  
-    .education-text {
-      text-align: left;
-      margin: 0 auto;
-      line-height: var(--a);
-      padding-left: var(--a1); /* removes default padding */
+  .content h2 {
+    font-family: var(--cinzel);
+    color: var(--color2);
+    font-weight: 300;
+    font-size: var(--a1);
+    text-align: left;
+    margin-bottom: var(--a);
+  }
 
+  ul {
+    list-style-type: none;
+    text-align: left;
+    margin: 0 auto;
+    padding-left: var(--a1);
+  }
+
+  ul li {
+    margin-bottom: var(--a);
+    line-height: var(--a);
+  }
+
+  .education-text {
+    text-align: left;
+    margin: 0 auto;
+    line-height: var(--a);
+    padding-left: var(--a1);
+  }
+
+  .note-text {
+    color: var(--color4);
+        text-align: left;
+        margin-top: var(--a);
+        line-height: var(--a);
     }
-  
-    img {
-      width: 100px;
-      margin: var(--a) auto;
-    }
-  
-    .contact-info {
-      margin-top: var(--a);
-    }
+
+  .contact-info {
+    margin-top: var(--a);
+  }
   </style>
   

@@ -3,7 +3,7 @@
   let latinTitle = "Rosa rubiginosa";
   let englishTitle = "Sweet Briar Rose";
 </script>
-
+<div />
 <div class="home-container">
   <div class="image-frame">
     <img src={selectedImage} alt={englishTitle} class="featured-image">
@@ -11,14 +11,15 @@
       <p class="english-title">{englishTitle}</p>
       <p class="latin-title">{latinTitle}</p>
     </div>
+  <div />
   </div>
 </div>
 
 <style>
   .home-container {
     display: flex;
-    
-    margin-top: var(--a3);
+    justify-content: space-evenly;
+    margin-top: var(--b3);
   }
 
   .image-frame {
@@ -54,5 +55,15 @@
 
   .latin-title {
     font-style: italic;
+  }
+
+  @media screen and (max-width: 768px) {
+    .home-container {
+      flex-direction: column;
+    }
+
+    .image-frame {
+      max-width: 100%;
+    }
   }
 </style>

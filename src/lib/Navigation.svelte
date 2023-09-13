@@ -1,5 +1,15 @@
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-missing-attribute -->
 <script>
+  import { slide } from 'svelte/transition';
+  import { elasticOut } from 'svelte/easing';
   import { Link } from 'svelte-routing';
+
+  let isSubmenuOpen = false;
+  function toggleSubmenu() {
+    isSubmenuOpen = !isSubmenuOpen;
+  }
   let openSection = null;
   let activeLink = 'home'; // Added to track the active link
 
@@ -13,7 +23,7 @@
   }
 </script>
 
-<nav class="navigation" aria-label="Main Navigation">
+<nav class="navigation" aria-label="Main Navigation" class:submenu-open={isSubmenuOpen && windowWidth <= 768}>
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
   <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>
@@ -27,15 +37,15 @@
   <a on:click={() => toggleSection('about')}><p class="nav-item" class:open-nav-item={openSection === 'about'} class:active={activeLink === 'about'}>About</p></a>
   <div class="submenu" class:open={openSection === 'about'}>
     <Link to="/about/photographer"><p class:active={activeLink === 'photographer'} class="submenu-item">Photographer</p></Link>
-    <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Archival Prints</p></Link>
+    <Link to="/about/archival-prints"><p class:active={activeLink === 'archival-prints'} class="submenu-item">Prints</p></Link>
     <Link to="/about/background"><p class:active={activeLink === 'background'} class="submenu-item">Background</p></Link>
   </div>
   <a on:click={() => toggleSection('journal')}><p class="nav-item" class:open-nav-item={openSection === 'journal'} class:active={activeLink === 'journal'}>Journal</p></a>
   <div class="submenu" class:open={openSection === 'journal'}>
-    <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
+    <!-- <Link to="/journal/spring"><p class:active={activeLink === 'spring'} class="submenu-item">Spring</p></Link>
     <Link to="/journal/summer"><p class:active={activeLink === 'summer'} class="submenu-item">Summer</p></Link>
     <Link to="/journal/fall"><p class:active={activeLink === 'fall'} class="submenu-item">Fall</p></Link>
-    <Link to="/journal/winter"><p class:active={activeLink === 'winter'} class="submenu-item">Winter</p></Link>
+    <Link to="/journal/winter"><p class:active={activeLink === 'winter'} class="submenu-item">Winter</p></Link> -->
   </div>
   <Link to="/get-in-touch" on:click={() => setActiveLink('get-in-touch')}><p class="nav-item" class:active={activeLink === 'get-in-touch'}>Get In Touch</p></Link>
 </nav>
@@ -44,7 +54,10 @@
 
 .navigation {
   display: flex;
+  bottom: 0;
   width: auto;  /* Changed from fixed width */
+  top: var(--header-height); /* Set the top value to the height of the header */
+  height: calc(100vh - var(--header-height));
   min-width: 160px;  /* Set a minimum width */
   max-width: 20%;  /* Will not take more than 20% of the parent width */
   flex-shrink: 0;
@@ -59,7 +72,7 @@
   cursor: pointer;
   padding: var(--a1) var(--b);
   position: sticky;
-  display: block;
+  display: flex;
   color: var(--color2);
   align-content: center;
  }
@@ -68,7 +81,7 @@
   cursor: pointer;
   padding: 0.5rem var(--b);
   position: relative;
-  display: block;
+  display: flex;
   color: var(--color2);
 }
 
@@ -114,5 +127,12 @@
 .open-nav-item:hover::before {
   width: 0;
   visibility: hidden;
+}
+
+/* Mobile Styles */
+@media (max-width: 769px) {
+  .navigation{
+    display: none;
+  }
 }
 </style>

@@ -1,4 +1,10 @@
 {
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": false,
+  "arrowParens": "avoid",
+  "svelteSortOrder": "options-scripts-markup-styles",
+  "svelteStrictMode": false
 }
