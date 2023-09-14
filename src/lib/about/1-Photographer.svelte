@@ -1,7 +1,7 @@
 <!-- src/lib/about/1-Photographer.svelte -->
 
 <script>
-    let photographerImage = "/Seal.png"; // Replace this with the actual path
+    let photographerImage = "/Seal.png";
   </script>
   
   <div class="photographer-page">
@@ -33,10 +33,12 @@
   
 <style>
     .photographer-page {
-      max-width: 600px;
-      margin: auto;
       text-align: center;
       display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      margin: var(--a3) var(--e3) var(--e3) var(--e3);
     }
   
     .content p {
@@ -46,13 +48,33 @@
     }
   
     img {
-      width: 80px; /* Adjust the size to fit the design */
-      margin-top: var(--e3);
-    }
+
+      margin-top: var(--d2);
+      width: var(--d1); 
+  
+   }
   
     .quote {
       font-style: italic;
       margin-top: var(--a);
+      align-self: center;
     }
-  </style>
-  
+ 
+ /* Mobile Design */
+ @media (max-width: 768px) {
+    .photographer-page {
+      max-width: 60%;
+    }
+
+    img {
+      width: 60px;
+      margin-top: var(--d1);
+    }
+
+    .content p, .quote {
+      font-size: var(--a);
+      line-height: var(--a1);
+      margin-top: var(--a);
+    }
+  }
+</style>

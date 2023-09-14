@@ -23,7 +23,7 @@
   }
 </script>
 
-<nav class="navigation" aria-label="Main Navigation" class:submenu-open={isSubmenuOpen && windowWidth <= 768}>
+<nav class="navigation" aria-label="Main Navigation">
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
   <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>

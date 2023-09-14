@@ -52,8 +52,7 @@
   </Router>
 <style>
 .page {
-  display: grid;
-  grid-template-columns: min-content 1fr;
+display: flex;
 }
 
 
@@ -69,7 +68,11 @@ footer {
     left: var(--a);
     width: 90%;
     font-family: var(--muli);
-   
+    z-index: 1002;
+   background: var(--color3);
+   height: var(--a2);
+   align-items: center;
+   justify-content: center;
   }
 
 
