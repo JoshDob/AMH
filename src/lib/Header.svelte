@@ -11,54 +11,69 @@
 </script>
 
 <header class="header" bind:this={headerRef}>
-<div class="section">
-  <div class="client-name">AnneMarie Hunter</div>
-  <div class="section-title">{sectionTitle}
-    <div class="underline"></div>
+  <div class="text-wrapper">
+    <div class="client-name">AnneMarie Hunter</div>
+    <div class="section-title">{sectionTitle}</div>
   </div>
-</div>
+  <div class="underline"></div>
 </header>
 
 <style>
-    .header {
+.header {
   display: flex;
-  padding: var(--b1) var(--a1);
-  align-items: baseline;
-  gap: var(--c2);
-  background-color: transparent;
-  z-index: 1001;
-;}
-
-.client-name {
-  color: var(--color2);
-  font-family: var(--merri);
-  font-size: var(--a3);
-  font-weight: 300;
-  font-variant: small-caps;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--b) var(--a1);
+  width: 100vw;
 }
 
-.section {
+.text-wrapper {
   display: flex;
-  align-items: baseline;
-  flex-direction: row;
-  gap: var(--d);
+  justify-content: flex-start;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.client-name, .section-title {
+  color: var(--color2);
+  font-family: var(--merri);
+  font-size: var(--a2);
+  font-weight: 300;
+  font-variant: small-caps;
+  white-space: nowrap;
 }
 
 .section-title {
-  color: var(--color2);
+  text-align: right;
   font-family: 'Muli', sans-serif;
   font-size: var(--a);
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  margin-left: var(--d2);
 }
 
 .underline {
-  position: relative;
   height: 1px;
-  left: -100%;
-  width: 220%;
+  width: 400px;
+  margin-left: var(--c);
   background-color: var(--crimson);
-  width: fill;
-  margin-top: 0.5rem;
 }
+
+@media (max-width:768px) {
+
+  .header {
+    flex-direction: column;
+    align-items: space-between;
+  }
+
+  .underline {
+    width: 310px;  /* Full width on mobile */
+  }
+
+  .section-title {
+    margin-left: var(--c);
+    letter-spacing: 0.1em;
+  }
+}
+
 </style>

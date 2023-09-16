@@ -14,6 +14,7 @@
     import Background from './lib/about/3-Background.svelte';
     import GetInTouch from './lib/GetInTouch.svelte';
     import Header from "./lib/Header.svelte";
+    import Footer from "./lib/Footer.svelte";
     import { firstImages } from "./lib/gallery/galleries";
     import { onMount } from "svelte";
 
@@ -24,7 +25,6 @@
     });
   })
   </script>
-  
   
   
   <Router>
@@ -45,36 +45,36 @@
     <Route path="/about/background" component={Background} />
     <Route path="/get-in-touch" component={GetInTouch} />
     </div>
+    <div class='space' />
   </div>
-  <footer>
-    <p style="text-align: left; font-size: 0.8rem;">All Images ©AnneMarie Hunter</p>
-  </footer>
+  <Footer />
   </Router>
+
 <style>
+.space {
+  flex-grow: 1;
+}
+
+
+
 .page {
 display: flex;
+align-items: flex-start;
 }
 
 
 .content {
   display: flex;
-  justify-content: center; /* Center align the flex items */
-  flex-grow: 1; /* Take up all remaining space in the flex container */
+
+
 }
 
-footer {
-    position: absolute;
-    bottom: var(--a);
-    left: var(--a);
-    width: 90%;
-    font-family: var(--muli);
-    z-index: 1002;
-   background: var(--color3);
-   height: var(--a2);
-   align-items: center;
-   justify-content: center;
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
   }
-
-
-
+  .space {
+    display: none;
+  }
+}
 </style>

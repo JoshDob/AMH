@@ -19,13 +19,14 @@
   .home-container {
     display: flex;
     justify-content: space-evenly;
-    margin-top: var(--b3);
+    margin-top: var(--d);
+    margin-right: var(--d);
   }
 
   .image-frame {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     align-items: center;
   }
@@ -39,18 +40,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: var(--a2);
+    margin-top: var(--b2);
     font-family: var(--merri);
     font-size: var(--a1);
     font-weight: 300;
-    color: var(--color2);
+    color: var(--color4);
     gap: var(--f3);
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: 0.6s ease;
   }
 
   .image-frame:hover .image-info {
     opacity: 1;
+    color: var(--color2);
   }
 
   .latin-title {
@@ -64,6 +66,7 @@
 
     .image-frame {
       max-width: 100%;
+      border: var(--a3) transparent solid;
     }
   }
 </style>

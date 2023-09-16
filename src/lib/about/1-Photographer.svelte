@@ -5,6 +5,7 @@
   </script>
   
   <div class="photographer-page">
+    <div class="space" />
     <div class="content">
       <p>
         <strong>My first photographs</strong> were of small birds perched on the branches of newly budded trees in Colorado’s Rocky Mountains. On a vacation with my family, I was seven or eight years old when I took these pictures. 
@@ -23,58 +24,104 @@
         
       </p>
   
-      <img src="{photographerImage}" alt="AnneMarie Hunter's Seal" />
+      <!-- <img class="seal" src="{photographerImage}" alt="AnneMarie Hunter's Seal" /> -->
   
-      <p class="quote">“All my life through, the new sights of nature made me rejoice like a child.”
-        ― Marie Curie
-      </p>
+      <blockquote>
+        “All my life through, the new sights of nature made me rejoice like a child.”
+        <br />
+        <span class="author">― Marie Curie</span>
+      </blockquote>
+
     </div>
+    <div class="space" /> 
   </div>
+  
   
 <style>
     .photographer-page {
       text-align: center;
       display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      align-items: center;
-      margin: var(--a3) var(--e3) var(--e3) var(--e3);
+      flex-direction: row;
+      justify-content: center;
+      height: 100%;
+      margin-top: var(--c3);
     }
   
+    .space {
+      flex-grow: 1;  /* Takes up available space */
+      width: 50%;
+    }
+
+    .content {
+      max-width: 1000px;
+      flex-grow: 2;
+    }
+
     .content p {
+      text-align: center;
+      line-height: var(--a2);
+      letter-spacing: 0.04em;
       margin-top: var(--b);
-      line-height: var(--a1);
       font-size: var(--a);
     }
-  
+  /*
     img {
 
       margin-top: var(--d2);
       width: var(--d1); 
   
    }
+
+   .seal {
+    position: absolute;
+    bottom: 80px;
+    right: 120px;
+   }
+    other styles */
   
-    .quote {
+    blockquote {
+      display: block;
+      flex-direction: row;
       font-style: italic;
-      margin-top: var(--a);
-      align-self: center;
+      margin-top: var(--e1);
+      justify-content: center;
+      text-align: center;
+      text-wrap: nowrap ;
     }
+
+    .author {
+    display: block;
+    text-align: flex-end;
+    margin-top: var(--a);
+}
  
  /* Mobile Design */
  @media (max-width: 768px) {
     .photographer-page {
-      max-width: 60%;
+      max-width: 80%;
+      margin-top: var(--b);
     }
 
-    img {
+    blockquote {
+      flex-direction: column;
+      margin-top: var(--d2);
+    }
+
+    .space {
+      display: none;
+    }
+
+    .author {
+    display: block;
+    text-align: right;
+    margin-right: var(--b);
+    margin-top: var(--a);
+}
+
+    /* img {
       width: 60px;
       margin-top: var(--d1);
-    }
+    } */
 
-    .content p, .quote {
-      font-size: var(--a);
-      line-height: var(--a1);
-      margin-top: var(--a);
-    }
   }
 </style>

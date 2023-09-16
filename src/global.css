@@ -80,7 +80,7 @@ body {
   font-family: var(--muli);
   font-size: var(--a);
   color: var(--color2);
-  background-color: var(--color3);
+  background-color: var(--color1);
 }
 
 a {
