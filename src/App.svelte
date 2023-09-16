@@ -59,7 +59,6 @@
 
 .page {
 display: flex;
-align-items: flex-start;
 }
 
 

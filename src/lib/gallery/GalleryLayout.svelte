@@ -18,7 +18,9 @@
     });
   });
 </script>
-
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          
 <div class='layout'> 
   <div class='hero-and-titles'>
     <div class='hero'>
@@ -33,6 +35,7 @@
     <div class='thumbnails'>
       {#each images as image, i}
         <div class='thumbnail'>
+
           <img src={getThumbnailSrc(image.src)} alt={image.title} on:click={() => activeImage = i} />
         </div>
       {/each}
@@ -45,34 +48,30 @@
 .layout {
   display: flex;
   flex-direction: row;
-  align-items:center;
-  justify-items: space-evenly;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .hero-and-titles {
   display: flex;
-  width: auto;
-  height: auto;
-  align-items: flex-start;
   flex-direction: column;
+  padding: var(--b);
 }
 
   .hero {
-    max-height: 100%;
-    max-width: 100%;
     display: flex;
     flex: 1;
-    /* New line for vertically centering the .hero */
-
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 550px;
     }
 
   .hero img {
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-    flex-shrink: 0;
-
-    
   }
 
   .titles {
@@ -80,7 +79,6 @@
     background-color: var(--color1) ;
     text-wrap: nowrap;
     align-self: center;
-    width: auto;
     font-family: 'Merriweather', serif;
     color: var(--color2);
     font-size: var(--a1);
@@ -99,11 +97,12 @@
   }
 
   .thumbnail-frame {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    max-width: 100%;
     max-height: 248px;
+    padding: var(--b);
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
   }
@@ -136,25 +135,27 @@
   }
 
   .hero img {
-    width: 100vw;
-    max-width: 100%;
+    display: flex;
+    flex: 0 0 auto;
     height: 480px;
+    max-width: 100%;
   }
   .thumbnail-frame {
     display: flex;
-    max-width: 90vw;
+    max-width: 350px;
     flex-direction: row;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-  }
+    align-items: center;
+    justify-content: flex-start;
+     }
   .thumbnails {
     gap: 4px;
     display: flex;
     flex-wrap: nowrap;
-    width:auto;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     scroll-snap-type: x mandatory;
     overflow-x: auto;  /* Enable horizontal scrolling */
@@ -176,8 +177,6 @@
     color: var(--color2);
     /* opacity: 0; */
     transition: opacity 0.6s ease;
-    justify-content: space-around;
-    width: 100vw;
 }
 }
 

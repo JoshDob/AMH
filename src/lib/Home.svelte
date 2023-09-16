@@ -19,8 +19,9 @@
   .home-container {
     display: flex;
     justify-content: space-evenly;
-    margin-top: var(--d);
+    padding-top: var(--e);
     margin-right: var(--d);
+    padding-bottom: var(--e);
   }
 
   .image-frame {
@@ -40,13 +41,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: var(--b2);
+    margin-top: var(--a3);
     font-family: var(--merri);
     font-size: var(--a1);
     font-weight: 300;
     color: var(--color4);
     gap: var(--f3);
-    opacity: 0;
+    opacity: 0.8;
     transition: 0.6s ease;
   }
 
@@ -62,11 +63,11 @@
   @media screen and (max-width: 768px) {
     .home-container {
       flex-direction: column;
-    }
+      margin-left: var(--d);
+         }
 
     .image-frame {
       max-width: 100%;
-      border: var(--a3) transparent solid;
     }
   }
 </style>
