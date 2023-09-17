@@ -6,7 +6,7 @@
   import { elasticOut } from 'svelte/easing';
   import { Link } from 'svelte-routing';
 
-  let menuOpen = true;
+  let menuOpen = false;
   let dragStartX = 0;
   let openSection = null;
   let activeLink = 'home';
@@ -216,6 +216,7 @@ on:mousedown={handleDragStart} on:mouseup={handleDragEnd}>
     color: var(--color2);
     border: none;
     background-color: var(--color1);
+    font-size: 140%;
   }
 
   .nav-item,

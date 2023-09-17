@@ -2,13 +2,13 @@
   import { onMount } from "svelte";
   import { fade } from 'svelte/transition';
   import { elasticOut } from 'svelte/easing';
-
+console.log("fade", fade);
   export let images = [];
   let activeImage = 0;
 
   const getThumbnailSrc = (src) => {
     const [path, ext] = src.split('.');
-    return `${path}-t.${ext}`;
+    return `${path}-T.${ext}`;
   };
 
   onMount(() => {
@@ -22,13 +22,14 @@
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
           
 <div class='layout'> 
-  <div class='hero-and-titles'>
-    <div class='hero'>
-      <img src={images[activeImage]?.src} alt='' in:fade={{ delay: 500, duration: 1000, easing: elasticOut }} />
+  <div class='space' />
+  <div class='hero-and-titles fade-in' in:fade={{ delay: 500, duration: 1000, easing: elasticOut }}>
+    <div class='hero fade-in'>
+      <img class='fade-in' src={images[activeImage]?.src} alt='' />
     </div>
-    <div class='titles' in:fade={{ duration: 3000 }}>
-      <p>{images[activeImage]?.title}</p>
-      <p class='latin'>{images[activeImage]?.latinName}</p>
+    <div class='titles fade-in' in:fade={{ duration: 1000 }}>
+      <p class='fade-in'>{images[activeImage]?.title}</p>
+      <p class='latin fade-in'>{images[activeImage]?.latinName}</p>
     </div>
   </div>
   <div class='thumbnail-frame'>
@@ -51,12 +52,15 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-and-titles {
   display: flex;
   flex-direction: column;
   padding: var(--b);
+  justify-content: center;
 }
 
   .hero {
@@ -72,6 +76,7 @@
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
+    opacity: 0;
   }
 
   .titles {
@@ -124,6 +129,11 @@
 
   /* Add a media query for smaller screens */
 @media (max-width: 768px) {
+
+  .space {
+    display: none;
+  }
+
   .layout {
     flex-direction: column;
     align-items: center;

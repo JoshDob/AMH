@@ -26,7 +26,7 @@
   })
   </script>
   
-  
+  <div class='app'>
   <Router>
     <Header />
     <div class='page'>
@@ -45,25 +45,42 @@
     <Route path="/about/background" component={Background} />
     <Route path="/get-in-touch" component={GetInTouch} />
     </div>
-    <div class='space' />
   </div>
-  <Footer />
+  <!-- <Footer /> -->
   </Router>
+</div>
 
 <style>
-.space {
-  flex-grow: 1;
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
 }
+
+/* .space {
+  display: none;
+  flex-grow: 1;
+} */
 
 
 
 .page {
 display: flex;
+height: 100%;
+width: 100%;
 }
 
 
 .content {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
 
 
 }
@@ -72,8 +89,8 @@ display: flex;
   .page {
     flex-direction: column;
   }
-  .space {
+  /* .space {
     display: none;
-  }
+  } */
 }
 </style>

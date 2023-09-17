@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: var(--b) var(--a1);
-  width: 100vw;
+  width: 100%;
 }
 
 .text-wrapper {

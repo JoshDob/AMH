@@ -18,17 +18,18 @@
 <style>
   .home-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-top: var(--e);
-    margin-right: var(--d);
     padding-bottom: var(--e);
+    padding-right: var(--e3);
+    max-width: 100vw;
   }
 
   .image-frame {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    max-width: 100%;
-    height: auto;
+    max-width: 900px;
     align-items: center;
   }
 
@@ -64,6 +65,7 @@
     .home-container {
       flex-direction: column;
       margin-left: var(--d);
+      padding-right: var(--d);
          }
 
     .image-frame {
