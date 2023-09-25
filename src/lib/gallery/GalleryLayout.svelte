@@ -2,22 +2,70 @@
   import { onMount } from "svelte";
   import { fade } from 'svelte/transition';
   import { elasticOut } from 'svelte/easing';
-console.log("fade", fade);
+  
   export let images = [];
   let activeImage = 0;
-
+  
+  // Helper function to get thumbnail source
   const getThumbnailSrc = (src) => {
     const [path, ext] = src.split('.');
     return `${path}-T.${ext}`;
   };
-
+  
+  // Touch event variables
+  let xStart = null;
+  let yStart = null;
+  
+  // Handle touch start
+  const handleTouchStart = (e) => {
+    const firstTouch = e.touches[0];
+    xStart = firstTouch.clientX;
+    yStart = firstTouch.clientY;
+  };
+  
+  // Handle touch move
+  const handleTouchMove = (e) => {
+    if (!xStart || !yStart) return;
+  
+    const xDiff = xStart - e.touches[0].clientX;
+    const yDiff = yStart - e.touches[0].clientY;
+  
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      activeImage = xDiff > 0 
+        ? (activeImage + 1) % images.length 
+        : (activeImage - 1 + images.length) % images.length;
+    }
+    xStart = null;
+    yStart = null;
+  };
+  
+  // Handle keydown for keyboard navigation
+  const handleKeydown = (e) => {
+    if (e.key === "ArrowRight") {
+      activeImage = (activeImage + 1) % images.length;
+    } else if (e.key === "ArrowLeft") {
+      activeImage = (activeImage - 1 + images.length) % images.length;
+    }
+  };
+  
+  // On mount
   onMount(() => {
+    // Preload images
     images.forEach((image) => {
       new Image().src = getThumbnailSrc(image.src);
       new Image().src = image.src;
     });
+  
+    // Add keyboard event listener
+    window.addEventListener("keydown", handleKeydown);
+  
+    // Cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeydown);
+    };
   });
-</script>
+  </script>
+
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
           
@@ -25,7 +73,15 @@ console.log("fade", fade);
   <div class='space' />
   <div class='hero-and-titles fade-in' in:fade={{ delay: 500, duration: 1000, easing: elasticOut }}>
     <div class='hero fade-in'>
-      <img class='fade-in' src={images[activeImage]?.src} alt='' />
+      <img 
+      tabindex="0"
+      src={images[activeImage]?.src} 
+      alt='' 
+      on:keydown={handleKeydown}
+      on:touchstart={handleTouchStart}
+      on:touchmove={handleTouchMove}
+    />
+    
     </div>
     <div class='titles fade-in' in:fade={{ duration: 1000 }}>
       <p class='fade-in'>{images[activeImage]?.title}</p>
@@ -76,7 +132,6 @@ console.log("fade", fade);
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-    opacity: 0;
   }
 
   .titles {

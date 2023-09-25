@@ -1,5 +1,5 @@
 <script>
-    import { Router, Route, Link } from "svelte-routing";
+    import { Router, Route } from "svelte-routing";
     import Navigation from './lib/Navigation.svelte';
     import NavigationMobile from './lib/NavigationMobile.svelte';
     import Home from './lib/Home.svelte';
