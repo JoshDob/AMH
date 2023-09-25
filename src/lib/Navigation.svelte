@@ -1,27 +1,21 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <!-- svelte-ignore a11y-missing-attribute -->
-<script>
-  import { slide } from 'svelte/transition';
-  import { elasticOut } from 'svelte/easing';
-  import { Link } from 'svelte-routing';
-
-  let isSubmenuOpen = false;
-  function toggleSubmenu() {
-    isSubmenuOpen = !isSubmenuOpen;
-  }
-  let openSection = null;
-  let activeLink = 'home'; // Added to track the active link
-
-  function toggleSection(section) {
-    openSection = openSection === section ? null : section;
-    activeLink = section; // Set the active link
-  }
+  <script>
+    import { Link } from 'svelte-routing';
   
-  function setActiveLink(link) {
-    activeLink = link;
-  }
-</script>
+    let openSection = null;
+    let activeLink = 'home';
+  
+    function toggleSection(section) {
+      openSection = openSection === section ? null : section;
+      activeLink = section;
+    }
+    
+    function setActiveLink(link) {
+      activeLink = link;
+    }
+  </script>
 
 <nav class="navigation" aria-label="Main Navigation">
   <Link to="/" on:click={() => setActiveLink('home')}><p class="nav-item" class:active={activeLink === 'home'}>Home</p></Link>
@@ -54,14 +48,12 @@
 
 .navigation {
   display: flex;
-  bottom: 0;
-  width: auto;  /* Changed from fixed width */
+  bottom: var(--footer-height);
   top: var(--header-height); /* Set the top value to the height of the header */
-  height: calc(100vh - var(--header-height));
-  min-width: 160px;  /* Set a minimum width */
-  max-width: 20%;  /* Will not take more than 20% of the parent width */
+  height: calc(100vh - (var(--header-height) + var(--footer-height))); /* Set the height to the height of the viewport minus the header and footer */
+  min-width: 207px;  /* Set a minimum width */
   flex-shrink: 0;
-  background-color: var(--color3);
+  background: none;
   flex-direction: column;
   font-family: var(--cinzel);
   padding-top: var(--b);
@@ -74,7 +66,7 @@
   position: sticky;
   display: flex;
   color: var(--color2);
-  align-content: center;
+  align-content: flex-end;
  }
 
 .submenu-item {
@@ -95,7 +87,8 @@
   left: 0;
   background-color: var(--crimson);
   visibility: hidden;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
+  
 }
 
 .submenu-item:hover:active,
@@ -105,7 +98,7 @@
 
 .nav-item:hover::before,
 .submenu-item:hover::before {
-  width: 75%;
+  width: 60%;
   visibility: visible;
 }
 

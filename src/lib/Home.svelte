@@ -18,15 +18,18 @@
 <style>
   .home-container {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: var(--b3);
+    justify-content: center;
+    padding-top: var(--e);
+    padding-bottom: var(--e);
+    padding-right: var(--e3);
+    max-width: 100vw;
   }
 
   .image-frame {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    max-width: 80%;
-    height: auto;
+    max-width: 900px;
     align-items: center;
   }
 
@@ -39,18 +42,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: var(--a2);
+    margin-top: var(--a3);
     font-family: var(--merri);
     font-size: var(--a1);
     font-weight: 300;
-    color: var(--color2);
+    color: var(--color4);
     gap: var(--f3);
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    opacity: 0.8;
+    transition: 0.6s ease;
   }
 
   .image-frame:hover .image-info {
     opacity: 1;
+    color: var(--color2);
   }
 
   .latin-title {
@@ -60,7 +64,9 @@
   @media screen and (max-width: 768px) {
     .home-container {
       flex-direction: column;
-    }
+      margin-left: var(--d);
+      padding-right: var(--d);
+         }
 
     .image-frame {
       max-width: 100%;

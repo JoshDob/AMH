@@ -1,5 +1,5 @@
 <script>
-    import { Router, Route, Link } from "svelte-routing";
+    import { Router, Route } from "svelte-routing";
     import Navigation from './lib/Navigation.svelte';
     import NavigationMobile from './lib/NavigationMobile.svelte';
     import Home from './lib/Home.svelte';
@@ -14,6 +14,7 @@
     import Background from './lib/about/3-Background.svelte';
     import GetInTouch from './lib/GetInTouch.svelte';
     import Header from "./lib/Header.svelte";
+    import Footer from "./lib/Footer.svelte";
     import { firstImages } from "./lib/gallery/galleries";
     import { onMount } from "svelte";
 
@@ -25,8 +26,7 @@
   })
   </script>
   
-  
-  
+  <div class='app'>
   <Router>
     <Header />
     <div class='page'>
@@ -46,35 +46,51 @@
     <Route path="/get-in-touch" component={GetInTouch} />
     </div>
   </div>
-  <footer>
-    <p style="text-align: left; font-size: 0.8rem;">All Images ©AnneMarie Hunter</p>
-  </footer>
+  <!-- <Footer /> -->
   </Router>
+</div>
+
 <style>
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+/* .space {
+  display: none;
+  flex-grow: 1;
+} */
+
+
+
 .page {
 display: flex;
+height: 100%;
+width: 100%;
 }
 
 
 .content {
   display: flex;
-  justify-content: center; /* Center align the flex items */
-  flex-grow: 1; /* Take up all remaining space in the flex container */
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+
+
 }
 
-footer {
-    position: absolute;
-    bottom: var(--a);
-    left: var(--a);
-    width: 90%;
-    font-family: var(--muli);
-    z-index: 1002;
-   background: var(--color3);
-   height: var(--a2);
-   align-items: center;
-   justify-content: center;
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
   }
-
-
-
+  /* .space {
+    display: none;
+  } */
+}
 </style>
