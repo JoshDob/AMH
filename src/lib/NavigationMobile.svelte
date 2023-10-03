@@ -1,16 +1,11 @@
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <!-- svelte-ignore a11y-missing-attribute -->
 <script>
   import { slide } from 'svelte/transition';
-  import { elasticOut } from 'svelte/easing';
   import { Link } from 'svelte-routing';
-
+  
   let menuOpen = false;
   let dragStartX = 0;
   let openSection = null;
   let activeLink = 'home';
-
 
   function handleDragStart(event) {
     dragStartX = event.clientX;
@@ -21,29 +16,29 @@
       menuOpen = false;
     }
   }
-
   function toggleMenu() {
     menuOpen = !menuOpen;
-    if (menuOpen) {
-    openSection = null;
   }
-  }
-  
   function toggleSection(section) {
     openSection = openSection === section ? null : section;
-    activeLink = section; // Set the active link
+    activeLink = section;
   }
-  
+
   function setActiveLink(link) {
     activeLink = link;
   }
 </script>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-missing-attribute -->
+  
 <nav class="navigation" aria-label="Main Navigation" class:closed={!menuOpen}
 on:mousedown={handleDragStart} on:mouseup={handleDragEnd}>
   <Link to="/">
+    
     <p class="nav-item" on:click={toggleMenu} class:active={activeLink === 'home'}>Home</p></Link>
+  
   <a on:click={() => toggleSection('galleries')}><p class="nav-item" class:open-nav-item={openSection === 'galleries'} class:active={activeLink === 'galleries'}>Galleries</p></a>
   <div class="submenu" class:open={openSection === 'galleries'}>
     <Link to="/gallery/roses"><p on:click={toggleMenu} class:active={activeLink === 'roses'} class="submenu-item">Roses</p></Link>

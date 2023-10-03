@@ -1,248 +1,210 @@
-<script>
-  import { onMount } from "svelte";
-  import { fade } from 'svelte/transition';
-  import { elasticOut } from 'svelte/easing';
-  
-  export let images = [];
-  let activeImage = 0;
-  
-  // Helper function to get thumbnail source
-  const getThumbnailSrc = (src) => {
-    const [path, ext] = src.split('.');
-    return `${path}-T.${ext}`;
-  };
-  
-  // Touch event variables
-  let xStart = null;
-  let yStart = null;
-  
-  // Handle touch start
-  const handleTouchStart = (e) => {
-    const firstTouch = e.touches[0];
-    xStart = firstTouch.clientX;
-    yStart = firstTouch.clientY;
-  };
-  
-  // Handle touch move
-  const handleTouchMove = (e) => {
-    if (!xStart || !yStart) return;
-  
-    const xDiff = xStart - e.touches[0].clientX;
-    const yDiff = yStart - e.touches[0].clientY;
-  
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      activeImage = xDiff > 0 
-        ? (activeImage + 1) % images.length 
-        : (activeImage - 1 + images.length) % images.length;
-    }
-    xStart = null;
-    yStart = null;
-  };
-  
-  // Handle keydown for keyboard navigation
-  const handleKeydown = (e) => {
-    if (e.key === "ArrowRight") {
-      activeImage = (activeImage + 1) % images.length;
-    } else if (e.key === "ArrowLeft") {
-      activeImage = (activeImage - 1 + images.length) % images.length;
-    }
-  };
-  
-  // On mount
-  onMount(() => {
-    // Preload images
-    images.forEach((image) => {
-      new Image().src = getThumbnailSrc(image.src);
-      new Image().src = image.src;
-    });
-  
-    // Add keyboard event listener
-    window.addEventListener("keydown", handleKeydown);
-  
-    // Cleanup
-    return () => {
-      window.removeEventListener("keydown", handleKeydown);
-    };
-  });
-  </script>
+<!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-          
-<div class='layout'> 
-  <div class='space' />
-  <div class='hero-and-titles fade-in' in:fade={{ delay: 500, duration: 1000, easing: elasticOut }}>
-    <div class='hero fade-in'>
-      <img 
-      tabindex="0"
-      src={images[activeImage]?.src} 
-      alt='' 
-      on:keydown={handleKeydown}
-      on:touchstart={handleTouchStart}
-      on:touchmove={handleTouchMove}
-    />
-    
+<script>
+  import { onMount } from 'svelte'
+  import { writable } from 'svelte/store'
+
+  const heroImageWidth = writable('auto')
+  let imgElement
+  let isPortrait = false
+  let activeImage = 0
+  let contentAreaWidth
+  export let images = []
+
+  const updateContentAreaWidth = () => {
+    contentAreaWidth = window.innerWidth * 0.9
+  }
+
+  const getThumbnailSrc = src => src.replace('.', '-T.')
+
+  const handleKeydown = e => {
+    if (['ArrowRight', 'ArrowLeft'].includes(e.key)) {
+      const direction = e.key === 'ArrowRight' ? 1 : -1
+      activeImage = (activeImage + direction + images.length) % images.length
+    }
+  }
+
+  const setImageWidth = () => {
+    heroImageWidth.set('auto')
+    requestAnimationFrame(() => {
+      if (imgElement) {
+        const aspectRatio = imgElement.naturalWidth / imgElement.naturalHeight
+        isPortrait = aspectRatio < 1
+        heroImageWidth.set(
+          isPortrait
+            ? `${imgElement.offsetHeight}px`
+            : `${imgElement.offsetWidth}px`
+        )
+      }
+    })
+  }
+
+  $: {
+    if (images?.length && imgElement?.complete) {
+      setImageWidth()
+      if (typeof contentAreaWidth !== 'undefined') {
+        const aspectRatio = imgElement.naturalWidth / imgElement.naturalHeight
+        const calculatedWidth = contentAreaWidth * (isPortrait ? 0.7 : 1)
+        if (calculatedWidth < contentAreaWidth) {
+          heroImageWidth.set(`${calculatedWidth}px`)
+        }
+      }
+    }
+  }
+
+  const handleResize = () => {
+    updateContentAreaWidth()
+    setImageWidth()
+  }
+
+  onMount(() => {
+    images.forEach(image => {
+      new Image().src = getThumbnailSrc(image.src)
+      new Image().src = image.src
+    })
+    updateContentAreaWidth()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
+</script>
+
+<div class="gallery-layout">
+  <div class="hero-and-titles" style="width: {$heroImageWidth};">
+    <div class="hero">
+      <img
+        bind:this={imgElement}
+        role="button"
+        tabindex="0"
+        src={images[activeImage]?.src}
+        alt={images[activeImage]?.title}
+        on:keydown={handleKeydown}
+        on:load={setImageWidth}
+        style="width: {$heroImageWidth};"
+      />
     </div>
-    <div class='titles fade-in' in:fade={{ duration: 1000 }}>
-      <p class='fade-in'>{images[activeImage]?.title}</p>
-      <p class='latin fade-in'>{images[activeImage]?.latinName}</p>
+    <div class="titles">
+      <p>{images[activeImage]?.title}</p>
+      <p class="latin">{images[activeImage]?.latinName}</p>
     </div>
   </div>
-  <div class='thumbnail-frame'>
-    <div class='thumbnails'>
+  <div class="thumbnail-container">
+    <div class="thumbnail-list">
       {#each images as image, i}
-        <div class='thumbnail'>
-
-          <img src={getThumbnailSrc(image.src)} alt={image.title} on:click={() => activeImage = i} />
+        <div class="thumbnail" on:click={() => (activeImage = i)}>
+          <img
+            role="button"
+            src={getThumbnailSrc(image.src)}
+            alt={`Thumbnail of ${image.title}`}
+          />
         </div>
       {/each}
     </div>
   </div>
 </div>
 
-
 <style>
-.layout {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 100%;
-}
+  .gallery-layout {
+    display: grid;
+    gap: var(--b);
+    grid-template-areas: 'hero-and-titles thumbnail-container';
+    grid-template-columns: 1fr 128px;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+  }
 
-.hero-and-titles {
-  display: flex;
-  flex-direction: column;
-  padding: var(--b);
-  justify-content: center;
-}
+  .hero-and-titles {
+    grid-area: hero-and-titles;
+  }
 
   .hero {
     display: flex;
-    flex: 1;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 550px;
-    }
+  }
 
   .hero img {
     object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90vh;
+    max-height: 78vh;
+    cursor: pointer;
+    justify-self: start;
   }
 
   .titles {
     display: flex;
-    background-color: var(--color1) ;
-    text-wrap: nowrap;
-    align-self: center;
-    font-family: 'Merriweather', serif;
+    justify-content: space-evenly;
+    background-color: var(--color1);
     color: var(--color2);
+    font-family: 'Merriweather', serif;
     font-size: var(--a1);
     font-weight: 300;
-    margin-top: var(--b);
-    }
-    
+    white-space: nowrap;
+    padding: var(--a3);
+  }
+
   .titles p {
-    transition: fade-in 1s ease-in-out;
-  margin-right: var(--d1); /* Space between titles */
-  margin-left: var(--d1);  /* Space between titles */
-}
+    margin: 0;
+  }
 
   .latin {
     font-style: italic;
   }
 
-  .thumbnail-frame {
-    flex: 0 0 auto;
+  .thumbnail-container {
+    grid-area: thumbnail-container;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     overflow-y: auto;
-    max-height: 248px;
-    padding: var(--b);
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    max-height: calc((88px * 4) + 4px * 3);
   }
 
-  .thumbnails {
-    scroll-snap-type: y mandatory;
-    flex-wrap: nowrap;  
-    flex-shrink: 0;
-    flex-grow: 0;
-    }
+  .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .thumbnail {
+    height: 88px;
+    width: 100%;
+  }
 
   .thumbnail img {
     object-fit: cover;
-    height: 80px;
-    width: 80px;
+    height: 88px;
+    width: 88px;
     cursor: pointer;
-    scroll-snap-align: start;
   }
 
-  /* Add a media query for smaller screens */
-@media (max-width: 768px) {
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .gallery-layout {
+      grid-template-areas:
+        'hero-and-titles'
+        'thumbnail-container';
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+    }
 
-  .space {
-    display: none;
+    .hero img {
+      height: auto;
+    }
+
+    .thumbnail-list {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .thumbnail-container {
+      justify-content: center;
+      overflow-x: auto;
+      max-width: calc((88px * 4) + 4px * 3);
+    }
   }
-
-  .layout {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-and-titles {
-    max-width: 100%;
-  }
-
-  .hero img {
-    display: flex;
-    flex: 0 0 auto;
-    height: 480px;
-    max-width: 100%;
-  }
-  .thumbnail-frame {
-    display: flex;
-    max-width: 350px;
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    align-items: center;
-    justify-content: flex-start;
-     }
-  .thumbnails {
-    gap: 4px;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;  /* Enable horizontal scrolling */
-    overflow-y: hidden;  /* Disable vertical scrolling */
-  }
-
-  .thumbnail img{
-    flex-shrink: 0;
-    height: 80px;
-    width: 80px;
-  }
-
-.titles {
-    display: flex;
-    align-items: center;
-    font-family: var(--merri);
-    font-size: var(--a1);
-    font-weight: 300;
-    color: var(--color2);
-    /* opacity: 0; */
-    transition: opacity 0.6s ease;
-}
-}
-
 </style>

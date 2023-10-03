@@ -1,6 +1,10 @@
 /* Variables */
   /* Sizing & Rhythm */
   :root {
+
+      --nav-width: 248px;
+      --header-height: 80px;
+        
     /* Base Unit */
     --a: 1rem; 
 
