@@ -3,7 +3,6 @@
   <!-- svelte-ignore a11y-missing-attribute -->
   <script>
     import { Link } from 'svelte-routing';
-  
     let openSection = null;
     let activeLink = 'home';
   
@@ -48,12 +47,7 @@
 
 .navigation {
   display: flex;
-  bottom: var(--footer-height);
-  top: var(--header-height); /* Set the top value to the height of the header */
-  height: calc(100vh - (var(--header-height) + var(--footer-height))); /* Set the height to the height of the viewport minus the header and footer */
-  min-width: 207px;  /* Set a minimum width */
-  flex-shrink: 0;
-  background: none;
+  grid-area: navigation;
   flex-direction: column;
   font-family: var(--cinzel);
   padding-top: var(--b);
@@ -63,17 +57,12 @@
 {
   cursor: pointer;
   padding: var(--a1) var(--b);
-  position: sticky;
-  display: flex;
   color: var(--color2);
-  align-content: flex-end;
  }
 
 .submenu-item {
   cursor: pointer;
   padding: 0.5rem var(--b);
-  position: relative;
-  display: flex;
   color: var(--color2);
 }
 
@@ -128,4 +117,5 @@
     display: none;
   }
 }
+
 </style>

@@ -42,6 +42,7 @@
 <style>
 .header {
   display: flex;
+  grid-area: header;
   flex-direction: column;
   align-items: flex-start;
   padding: var(--b) var(--a3);

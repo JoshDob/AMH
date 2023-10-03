@@ -1,96 +1,102 @@
 <script>
-    import { Router, Route } from "svelte-routing";
-    import Navigation from './lib/Navigation.svelte';
-    import NavigationMobile from './lib/NavigationMobile.svelte';
-    import Home from './lib/Home.svelte';
-    import GalleryRoses from './lib/gallery/1-Roses.svelte';
-    import GalleryArboretum from './lib/gallery/2-TheArboretum.svelte';
-    import GalleryBotanicaPrelude from './lib/gallery/3-BotanicaPrelude.svelte';
-    import GalleryBotanicaSymphony from './lib/gallery/4-BotanicaSymphony.svelte';
-    import GalleryBotanicaEnigma from './lib/gallery/5-BotanicaEnigma.svelte';
-    import GalleryInTheGarden from './lib/gallery/6-InTheGarden.svelte';
-    import Photographer from './lib/about/1-Photographer.svelte';
-    import ArchivalPrints from './lib/about/2-ArchivalPrints.svelte';
-    import Background from './lib/about/3-Background.svelte';
-    import GetInTouch from './lib/GetInTouch.svelte';
-    import Header from "./lib/Header.svelte";
-    import Footer from "./lib/Footer.svelte";
-    import { firstImages } from "./lib/gallery/galleries";
-    import { onMount } from "svelte";
+  import { Router, Route } from "svelte-routing";
+  import Navigation from './lib/Navigation.svelte';
+  import NavigationMobile from './lib/NavigationMobile.svelte';
+  import Home from './lib/Home.svelte';
+  import * as Galleries from './lib/gallery/galleryImports.js';
+  import Photographer from './lib/about/1-Photographer.svelte';
+  import ArchivalPrints from './lib/about/2-ArchivalPrints.svelte';
+  import Background from './lib/about/3-Background.svelte';
+  import GetInTouch from './lib/GetInTouch.svelte';
+  import Header from "./lib/Header.svelte";
+  import Footer from "./lib/Footer.svelte";
+  import { firstImages } from "./lib/gallery/galleries";
+  import { onMount } from "svelte";
 
-    onMount(() => {
-    firstImages.forEach((image) => {
-      const img = new Image();
-      img.src = image.src;
-    });
-  })
-  </script>
-  
-  <div class='app'>
+  let isMobile = window.innerWidth <= 768;
+
+  onMount(() => {
+  const handleResize = () => {
+    isMobile = window.innerWidth <= 768;
+  };
+
+  firstImages.forEach((image) => {
+    const img = new Image();
+    img.src = image.src;
+  });
+
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup function
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+});
+
+
+
+  $: if (isMobile) {
+    document.documentElement.style.setProperty('--nav-width', '0px');
+  } else {
+    document.documentElement.style.setProperty('--nav-width', '248px');
+  }
+</script>
+
+<div class="app" >
   <Router>
     <Header />
-    <div class='page'>
-    <Navigation />
-    <NavigationMobile />
-    <div class='content'>
-    <Route path="/" component={Home} />
-    <Route path="/gallery/roses" component={GalleryRoses} />
-    <Route path="/gallery/arboretum" component={GalleryArboretum} />
-    <Route path="/gallery/botanica-prelude" component={GalleryBotanicaPrelude} />
-    <Route path="/gallery/botanica-symphony" component={GalleryBotanicaSymphony} />
-    <Route path="/gallery/botanica-enigma" component={GalleryBotanicaEnigma} />
-    <Route path="/gallery/in-the-garden" component={GalleryInTheGarden} />
-    <Route path="/about/photographer" component={Photographer} />
-    <Route path="/about/archival-prints" component={ArchivalPrints} />
-    <Route path="/about/background" component={Background} />
-    <Route path="/get-in-touch" component={GetInTouch} />
+    <Navigation class="navigation" />
+    {#if isMobile}
+      <NavigationMobile />
+    {/if}
+    <div class="content" >
+      <Route path="/" component={Home} />
+      <Route path="/gallery/roses" component={Galleries.GalleryRoses} />
+      <Route path="/gallery/arboretum" component={Galleries.GalleryArboretum} />
+      <Route path="/gallery/botanica-prelude" component={Galleries.GalleryBotanicaPrelude} />
+      <Route path="/gallery/botanica-symphony" component={Galleries.GalleryBotanicaSymphony} />
+      <Route path="/gallery/botanica-enigma" component={Galleries.GalleryBotanicaEnigma} />
+      <Route path="/gallery/in-the-garden" component={Galleries.GalleryInTheGarden} />
+      <Route path="/about/photographer" component={Photographer} />
+      <Route path="/about/archival-prints" component={ArchivalPrints} />
+      <Route path="/about/background" component={Background} />
+      <Route path="/get-in-touch" component={GetInTouch} />
     </div>
-  </div>
-  <!-- <Footer /> -->
+    <Footer class="footer" style="grid-area: footer;" />
   </Router>
 </div>
 
 <style>
-
-
-.app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
-}
-
-/* .space {
-  display: none;
-  flex-grow: 1;
-} */
-
-
-
-.page {
-display: flex;
-height: 100%;
-width: 100%;
-}
-
-
-.content {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  height: 100%;
-
-
-}
-
-@media (max-width: 768px) {
-  .page {
-    flex-direction: column;
+  .app {
+    display: grid;
+    grid-template-areas: 
+      'header header'
+      'navigation content'
+      'footer footer';
+    
+    grid-template-columns: var(--nav-width) 1fr;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
   }
-  /* .space {
-    display: none;
-  } */
+
+  .content {
+  grid-area: content;
+  display: grid;
+  width: calc(100vw - var(--nav-width));
+  height: calc(100vh - var(--header-height));
 }
+
+  
+
+
+  @media (max-width: 768px) {
+    .app {
+      grid-template-areas:
+        'header'
+        'navigation-mobile'
+        'content'
+        'footer';
+    }
+  }
 </style>

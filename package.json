@@ -16,7 +16,7 @@
     "dev": "webpack serve"
   },
   "dependencies": {
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "prettier-plugin-svelte": "^3.0.3",
     "svelte-routing": "^2.0.0"
   }
