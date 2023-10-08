@@ -11,7 +11,15 @@
   let isPortrait = false
   let activeImage = 0
   let contentAreaWidth
+  let timeout
   export let images = []
+
+  const debouncedHandleResize = () => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      handleResize()
+    }, 100) // 100ms delay
+  }
 
   const updateContentAreaWidth = () => {
     contentAreaWidth = window.innerWidth * 0.9
@@ -65,10 +73,10 @@
       new Image().src = image.src
     })
     updateContentAreaWidth()
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', debouncedHandleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', debouncedHandleResize)
     }
   })
 </script>
